@@ -3,7 +3,7 @@ title: "Estabilidad 1"
 subtitle: "Ingeniería Mecanica · UTN FRLP · 2026"
 ---
 
-**Prof. Titular:** Ing. Augusto Vaello
+**Prof. Titular:** Ing. Augusto Vaello  
 **JTP:** Ing. Jorge Ronconi
 
 ---
