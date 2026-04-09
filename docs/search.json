@@ -1,0 +1,233 @@
+[
+  {
+    "objectID": "tp1/tp1_presentacion.html#qué-plantea-este-tp",
+    "href": "tp1/tp1_presentacion.html#qué-plantea-este-tp",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "¿Qué plantea este TP?",
+    "text": "¿Qué plantea este TP?\nNueve ejercicios sobre un solo concepto:\n\nUn sistema de fuerzas concurrentes puede reemplazarse por una fuerza única equivalente.\n\nCada ejercicio hace una pregunta distinta sobre ese mismo fenómeno físico."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#estructura-general",
+    "href": "tp1/tp1_presentacion.html#estructura-general",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Estructura general",
+    "text": "Estructura general\n\n\n\nEjercicios\nQué se pregunta\n\n\n\n\n1, 2, 3\nMisma figura, tres métodos distintos\n\n\n4, 5\nMismo resultado, otra terna de referencia\n\n\n6\n¿Qué pasa si cambio el punto de aplicación?\n\n\n7\n¿Cómo hago para que no haya resultante?\n\n\n8\n¿Cómo anulo cada uno de los sistemas anteriores?\n\n\n9\n¿Cómo varía el efecto de giro según el punto?"
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicios-1-2-y-3-tres-métodos-misma-figura",
+    "href": "tp1/tp1_presentacion.html#ejercicios-1-2-y-3-tres-métodos-misma-figura",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicios 1, 2 y 3 — tres métodos, misma figura",
+    "text": "Ejercicios 1, 2 y 3 — tres métodos, misma figura\nLa Figura 1 tiene 6 fuerzas (\\(F_1\\) a \\(F_6\\)). Cada ejercicio trabaja con un subconjunto distinto:\n\nEj. 1: \\(\\{F_1, F_2, F_3, F_4, F_5\\}\\) → método de proyecciones\nEj. 2: \\(\\{F_2, F_3, F_4, F_5, F_6\\}\\) → método de momentos (dos puntos fuera de los ejes)\nEj. 3: \\(\\{F_1, F_3, F_4, F_5, F_6\\}\\) → método mixto (una proyección + un momento)\n\n\n\n\n\n\n\nNote\n\n\nLos tres ejercicios también piden verificación gráfica (polígono de fuerzas).\nEl método mixto del Ej. 3 es la verificación cruzada: si dos caminos independientes coinciden, el cálculo es confiable."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-1-proyecciones",
+    "href": "tp1/tp1_presentacion.html#ejercicio-1-proyecciones",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 1 — Proyecciones",
+    "text": "Ejercicio 1 — Proyecciones\n\\[R_x = \\sum F_i \\cos\\theta_i \\qquad R_y = \\sum F_i \\sin\\theta_i\\]\n\\[|\\mathbf{R}| = \\sqrt{R_x^2 + R_y^2} \\qquad \\theta_R = \\arctan\\!\\left(\\frac{R_y}{R_x}\\right)\\]\nProyectás cada fuerza sobre X e Y, sumás, aplicás Pitágoras.\n\n\n\n\n\n\nWarning\n\n\nCondición que se da por sobreentendida: los ejes son perpendiculares.\nPor eso Pitágoras funciona. En el ejercicio 5 eso va a dejar de ser cierto."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-2-momentos-y-varignon",
+    "href": "tp1/tp1_presentacion.html#ejercicio-2-momentos-y-varignon",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 2 — Momentos y Varignon",
+    "text": "Ejercicio 2 — Momentos y Varignon\n\\[M_O(\\mathbf{R}) = \\sum_{i} M_O(\\mathbf{F}_i)\\]\nEl ejercicio pide dos ecuaciones de momentos respecto a puntos que no pertenecen a los ejes coordenados.\n\n\n\n\n\n\nTip\n\n\n¿Por qué puntos fuera de los ejes?\nSi el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería sentido.\nElegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca.\n\n\n\n\n\n\n\n\n\nNote\n\n\nEl método de momentos también determina la ubicación de la recta de acción de la resultante, no solo su módulo y dirección. Eso es información adicional que las proyecciones no dan directamente."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-3-método-mixto",
+    "href": "tp1/tp1_presentacion.html#ejercicio-3-método-mixto",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 3 — Método mixto",
+    "text": "Ejercicio 3 — Método mixto\nUna ecuación de proyección + una ecuación de momento.\nSi los dos resultados son consistentes → el cálculo es correcto.\nSi no lo son → hay un error en alguno de los dos pasos.\n\nEsta es la lógica de auditoría que usa un calculista antes de avanzar."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicios-4-y-5-otra-terna-el-mismo-resultado",
+    "href": "tp1/tp1_presentacion.html#ejercicios-4-y-5-otra-terna-el-mismo-resultado",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicios 4 y 5 — otra terna, el mismo resultado",
+    "text": "Ejercicios 4 y 5 — otra terna, el mismo resultado\nEl sistema de fuerzas no cambia. Lo que cambia es el sistema de referencia.\nEjercicio 4: terna rotada \\(+45°\\) (antihorario). Calcular \\(R_{x'}\\) y \\(R_{y'}\\).\nVerificación obligatoria: \\[|\\mathbf{R}| = \\sqrt{R_{x'}^2 + R_{y'}^2} \\quad \\text{debe coincidir con el Ej. 1}\\]\n\n\n\n\n\n\nTip\n\n\nSi el módulo cambia al rotar la terna, el error está en los ángulos locales de cada fuerza respecto a los nuevos ejes."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-5-ejes-oblicuos-no-ortogonales",
+    "href": "tp1/tp1_presentacion.html#ejercicio-5-ejes-oblicuos-no-ortogonales",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 5 — ejes oblicuos (no ortogonales)",
+    "text": "Ejercicio 5 — ejes oblicuos (no ortogonales)\nEje \\(X''\\) rotado \\(+40°\\) y eje \\(Y''\\) rotado \\(+60°\\), ambos en sentido horario.\nEl ángulo entre los dos ejes no es 90°.\n\n\n\n\n\n\nWarning\n\n\nProhibido Pitágoras.\nCuando los ejes no son perpendiculares, el módulo se obtiene por la ley de cosenos:\n\\[|\\mathbf{R}|^2 = R_{x''}^2 + R_{y''}^2 + 2\\,R_{x''} R_{y''} \\cos\\alpha\\]\ndonde \\(\\alpha\\) es el ángulo entre los ejes. El ejercicio pide justificar esto explícitamente.\n\n\n\nLa verificación es gráfica: método del paralelogramo con los dos ejes oblicuos."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-6-descomposición-y-par-de-transporte",
+    "href": "tp1/tp1_presentacion.html#ejercicio-6-descomposición-y-par-de-transporte",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 6 — descomposición y par de transporte",
+    "text": "Ejercicio 6 — descomposición y par de transporte\nDos partes con la resultante del Ej. 3:\nParte a) Descomponer \\(\\mathbf{R}\\) en dos direcciones oblicuas: \\(a\\) (a 30°) y \\(b\\) (a 140°).\n\n\n\n\n\n\nNote\n\n\nEstas dos direcciones no son perpendiculares entre sí. No es una descomposición cartesiana estándar.\nSe resuelve por el método del paralelogramo o por la ley de senos.\n\n\n\nParte b) Trasladar \\(\\mathbf{R}\\) a los puntos \\(A(-4, 1)\\) m y \\(B(2, 3)\\) m.\nAl trasladar una fuerza, el sistema original se mantiene equivalente solo si se agrega un par de transporte:\n\\[M_{\\text{par}} = \\mathbf{R} \\times d\\]\nLa fuerza es la misma en A y en B. Los pares son distintos porque las distancias son distintas."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-7-equilibrio-del-semáforo",
+    "href": "tp1/tp1_presentacion.html#ejercicio-7-equilibrio-del-semáforo",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 7 — equilibrio del semáforo",
+    "text": "Ejercicio 7 — equilibrio del semáforo\nUn semáforo de \\(P = 0{,}125 \\, \\text{kN}\\) cuelga de un cable vertical, unido a dos cables fijos que forman \\(37°\\) y \\(53°\\) con la horizontal.\nCondición de equilibrio: \\[\\sum F_x = 0 \\qquad \\sum F_y = 0\\]\n\n\n\n\n\n\nTip\n\n\nVerificación gráfica: polígono de fuerzas cerrado.\nSi el sistema está en equilibrio, la última fuerza debe devolverte exactamente al punto de partida del diagrama.\n\n\n\n\n\n\n\n\n\nWarning\n\n\nUnidades: el enunciado da el peso en kN. Trabajar en kN durante todo el ejercicio."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-8-equilibrante-de-cada-sistema",
+    "href": "tp1/tp1_presentacion.html#ejercicio-8-equilibrante-de-cada-sistema",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 8 — equilibrante de cada sistema",
+    "text": "Ejercicio 8 — equilibrante de cada sistema\nPara los tres subconjuntos de los Ej. 1, 2 y 3, determinar el vector equilibrante \\(\\mathbf{E}\\):\n\\[\\mathbf{E} = -\\mathbf{R}\\]\n\n\n\nSistema\nMétodo pedido\n\n\n\n\n\\(\\mathbf{E}_1\\) (del Ej. 1)\nAnalítico + polígono cerrado\n\n\n\\(\\mathbf{E}_2\\) (del Ej. 2)\nMomentos, verificar \\(\\sum M = 0\\)\n\n\n\\(\\mathbf{E}_3\\) (del Ej. 3)\nMétodo mixto\n\n\n\n\n\n\n\n\n\nWarning\n\n\nError frecuente: la equilibrante tiene el mismo módulo que la resultante, misma línea de acción, pero sentido opuesto y actúa en el mismo punto de aplicación.\nNo es simplemente cambiar el signo del vector en el gráfico."
+  },
+  {
+    "objectID": "tp1/tp1_presentacion.html#ejercicio-9-variación-del-momento-y-varignon",
+    "href": "tp1/tp1_presentacion.html#ejercicio-9-variación-del-momento-y-varignon",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "Ejercicio 9 — variación del momento y Varignon",
+    "text": "Ejercicio 9 — variación del momento y Varignon\nUsando la resultante del Ej. 1, estudiar cómo varía el momento según el punto de aplicación.\na) Calcular el momento de \\(\\mathbf{R}\\) respecto a un punto genérico \\(P(0, y)\\) sobre el eje de ordenadas.\nb) Encontrar el valor de \\(y_P\\) tal que \\(M = 20 \\, \\text{kN·m}\\) horario.\nc) Verificar aplicando Varignon con cada fuerza individual.\n\n\n\n\n\n\nNote\n\n\n¿Por qué tiene sentido este ejercicio?\nEl momento de una fuerza no es fijo: depende del punto respecto al cual se mide.\nVarignon permite calcularlo sin conocer explícitamente la recta de acción de la resultante."
+  },
+  {
+    "objectID": "tp1/index.html",
+    "href": "tp1/index.html",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "",
+    "text": "El enunciado completo está disponible para descargar:\n📄 Descargar enunciado (PDF)"
+  },
+  {
+    "objectID": "tp1/index.html#enunciado",
+    "href": "tp1/index.html#enunciado",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "",
+    "text": "El enunciado completo está disponible para descargar:\n📄 Descargar enunciado (PDF)"
+  },
+  {
+    "objectID": "tp1/index.html#explicación",
+    "href": "tp1/index.html#explicación",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "0.2 Explicación",
+    "text": "0.2 Explicación\nLa siguiente sección desarrolla los conceptos necesarios para resolver cada ejercicio del TP."
+  },
+  {
+    "objectID": "tp1/index.html#ejercicio-1-proyecciones-analíticas",
+    "href": "tp1/index.html#ejercicio-1-proyecciones-analíticas",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.1 Ejercicio 1 — Proyecciones analíticas",
+    "text": "2.1 Ejercicio 1 — Proyecciones analíticas\nLas componentes cartesianas de la Resultante se obtienen sumando las proyecciones de cada fuerza sobre los ejes X e Y:\n\\[R_x = \\sum_{i=1}^{n} F_i \\cos\\theta_i \\qquad R_y = \\sum_{i=1}^{n} F_i \\sin\\theta_i\\]\nEl módulo y la dirección resultan:\n\\[R = \\sqrt{R_x^2 + R_y^2} \\qquad \\theta_R = \\arctan\\!\\left(\\frac{R_y}{R_x}\\right)\\]\n\n\n\n\n\n\nAdvertencia\n\n\n\nCondición implícita: Pitágoras aplica únicamente cuando los ejes son ortogonales. En el ejercicio 5 esa condición deja de cumplirse."
+  },
+  {
+    "objectID": "tp1/index.html#ejercicio-2-momentos-y-teorema-de-varignon",
+    "href": "tp1/index.html#ejercicio-2-momentos-y-teorema-de-varignon",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.2 Ejercicio 2 — Momentos y Teorema de Varignon",
+    "text": "2.2 Ejercicio 2 — Momentos y Teorema de Varignon\nEl momento de una fuerza respecto a un punto O es:\n\\[M_O(\\mathbf{F}) = F \\cdot d\\]\ndonde \\(d\\) es el brazo de palanca (distancia perpendicular de O a la línea de acción de \\(\\mathbf{F}\\)).\nTeorema de Varignon:\n\\[M_O(\\mathbf{R}) = \\sum_{i=1}^{n} M_O(\\mathbf{F}_i)\\]\nEl ejercicio pide plantear dos ecuaciones de momentos respecto a puntos que no pertenezcan a los ejes coordenados.\n\n\n\n\n\n\nTip\n\n\n\nElegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca, lo que consolida el procedimiento. Si el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería riqueza.\n\n\n\n\n\n\n\n\nNota\n\n\n\nEl método de momentos también determina la ubicación de la recta de acción de la Resultante, información que las proyecciones no proveen directamente."
+  },
+  {
+    "objectID": "tp1/index.html#ejercicio-3-método-mixto",
+    "href": "tp1/index.html#ejercicio-3-método-mixto",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.3 Ejercicio 3 — Método mixto",
+    "text": "2.3 Ejercicio 3 — Método mixto\nCombina una ecuación de proyección con una de momento."
+  },
+  {
+    "objectID": "tp1/index.html#ejercicio-4-rotación-del-sistema-de-referencia",
+    "href": "tp1/index.html#ejercicio-4-rotación-del-sistema-de-referencia",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "3.1 Ejercicio 4 — Rotación del sistema de referencia",
+    "text": "3.1 Ejercicio 4 — Rotación del sistema de referencia\nSe trabaja con la Resultante del ejercicio 1. La terna de ejes se rota \\(+45°\\) en sentido antihorario, generando los ejes \\(X' - Y'\\).\nEl ejercicio pide calcular las nuevas componentes \\(R_{x'}\\) y \\(R_{y'}\\), y demostrar que:\n\\[|\\mathbf{R}| = \\sqrt{R_{x'}^2 + R_{y'}^2}\\]\ncoincide con el módulo obtenido en el ejercicio 1.\n\n\n\n\n\n\nTip\n\n\n\nSi el módulo cambia al rotar la terna, el error está en cómo se calcularon los ángulos locales de cada fuerza respecto a los nuevos ejes."
+  },
+  {
+    "objectID": "tp1/index.html#ejercicio-5-sistema-de-ejes-oblicuos",
+    "href": "tp1/index.html#ejercicio-5-sistema-de-ejes-oblicuos",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "3.2 Ejercicio 5 — Sistema de ejes oblicuos",
+    "text": "3.2 Ejercicio 5 — Sistema de ejes oblicuos\nSe trabaja con el sistema del ejercicio 2. Los ejes \\(X'' - Y''\\) están rotados \\(+40°\\) y \\(+60°\\) respectivamente en sentido horario respecto a la terna original. El ángulo entre ambos ejes no es 90°.\n\n\n\n\n\n\nAdvertencia\n\n\n\nProhibido Pitágoras. Cuando los ejes no son perpendiculares, el módulo de la Resultante se obtiene por la ley de cosenos:\n\\[R^2 = R_{x''}^2 + R_{y''}^2 + 2\\,R_{x''}\\,R_{y''}\\cos\\alpha\\]\ndonde \\(\\alpha\\) es el ángulo entre los ejes. El ejercicio pide justificar explícitamente por qué Pitágoras no aplica.\n\n\nLa verificación es gráfica mediante el método del paralelogramo con los ejes oblicuos."
+  },
+  {
+    "objectID": "tp1/index.html#parte-a-descomposición-en-direcciones-oblicuas",
+    "href": "tp1/index.html#parte-a-descomposición-en-direcciones-oblicuas",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "4.1 Parte a) — Descomposición en direcciones oblicuas",
+    "text": "4.1 Parte a) — Descomposición en direcciones oblicuas\nLa Resultante se descompone en dos direcciones no ortogonales: dirección \\(a\\) (a 30°) y dirección \\(b\\) (a 140°).\n\n\n\n\n\n\nNota\n\n\n\nComo las direcciones no son perpendiculares entre sí, no se puede aplicar la descomposición cartesiana estándar. El procedimiento es el método del paralelogramo o la ley de senos."
+  },
+  {
+    "objectID": "tp1/index.html#parte-b-traslación-y-par-de-transporte",
+    "href": "tp1/index.html#parte-b-traslación-y-par-de-transporte",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "4.2 Parte b) — Traslación y par de transporte",
+    "text": "4.2 Parte b) — Traslación y par de transporte\nTrasladar el punto de aplicación de una fuerza no es gratis. El sistema original se mantiene equivalente solo si se agrega un par de transporte:\n\\[M_{\\text{par}} = \\mathbf{R} \\times d\\]\nEl ejercicio pide trasladar la Resultante a los puntos \\(A(-4,\\,1)\\) m y \\(B(2,\\,3)\\) m, determinando el par de transporte en cada caso.\nLa fuerza es idéntica en A y en B. Los pares son distintos porque las distancias a la recta de acción original son distintas."
+  },
+  {
+    "objectID": "tp1/index.html#presentación-de-clase",
+    "href": "tp1/index.html#presentación-de-clase",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "8.1 Presentación de clase",
+    "text": "8.1 Presentación de clase\nLa presentación utilizada en clase está disponible en:\n▶ Ver presentación"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Estabilidad",
+    "section": "",
+    "text": "Prof. Titular: Ing. Daniel Zangara\nJTP: Ing. Jorge Ronconi"
+  },
+  {
+    "objectID": "index.html#trabajos-prácticos",
+    "href": "index.html#trabajos-prácticos",
+    "title": "Estabilidad",
+    "section": "1 Trabajos Prácticos",
+    "text": "1 Trabajos Prácticos\n\n\n\nTP\nTema\n\n\n\n\n\nTP1\nFuerzas Concurrentes en el Plano\nVer"
+  },
+  {
+    "objectID": "tp1/tp1_documento.html",
+    "href": "tp1/tp1_documento.html",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "",
+    "text": "En aplicaciones reales — un nudo de cercha, el anclaje de un puente, la unión de una viga — las fuerzas no actúan de a una. El nudo experimenta la acción simultánea de múltiples fuerzas. La Resultante es la fuerza única que produce el mismo efecto mecánico que todo ese sistema.\n\n\n\n\n\n\nNota\n\n\n\nEl nudo no discrimina métodos analíticos ni gráficos. El nudo siente un solo tirón: la Resultante.\n\n\nPregunta de apertura: ¿Cambia el módulo de la Resultante si se miden los ángulos desde el eje X o desde el eje Y?\n→ No. La Resultante es invariante respecto al sistema de referencia. Los ejercicios 4 y 5 demuestran esto explícitamente."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#ejercicio-1-proyecciones-analíticas",
+    "href": "tp1/tp1_documento.html#ejercicio-1-proyecciones-analíticas",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.1 Ejercicio 1 — Proyecciones analíticas",
+    "text": "2.1 Ejercicio 1 — Proyecciones analíticas\nLas componentes cartesianas de la Resultante se obtienen sumando las proyecciones de cada fuerza sobre los ejes X e Y:\n\\[R_x = \\sum_{i=1}^{n} F_i \\cos\\theta_i \\qquad R_y = \\sum_{i=1}^{n} F_i \\sin\\theta_i\\]\nEl módulo y la dirección resultan:\n\\[R = \\sqrt{R_x^2 + R_y^2} \\qquad \\theta_R = \\arctan\\!\\left(\\frac{R_y}{R_x}\\right)\\]\n\n\n\n\n\n\nAdvertencia\n\n\n\nCondición implícita: Pitágoras aplica únicamente cuando los ejes son ortogonales. En el ejercicio 5 esa condición deja de cumplirse."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#ejercicio-2-momentos-y-teorema-de-varignon",
+    "href": "tp1/tp1_documento.html#ejercicio-2-momentos-y-teorema-de-varignon",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.2 Ejercicio 2 — Momentos y Teorema de Varignon",
+    "text": "2.2 Ejercicio 2 — Momentos y Teorema de Varignon\nEl momento de una fuerza respecto a un punto O es:\n\\[M_O(\\mathbf{F}) = F \\cdot d\\]\ndonde \\(d\\) es el brazo de palanca (distancia perpendicular de O a la línea de acción de \\(\\mathbf{F}\\)).\nTeorema de Varignon:\n\\[M_O(\\mathbf{R}) = \\sum_{i=1}^{n} M_O(\\mathbf{F}_i)\\]\nEl ejercicio pide plantear dos ecuaciones de momentos respecto a puntos que no pertenezcan a los ejes coordenados.\n\n\n\n\n\n\nTip\n\n\n\nElegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca, lo que consolida el procedimiento. Si el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería riqueza.\n\n\n\n\n\n\n\n\nNota\n\n\n\nEl método de momentos también determina la ubicación de la recta de acción de la Resultante, información que las proyecciones no proveen directamente."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#ejercicio-3-método-mixto",
+    "href": "tp1/tp1_documento.html#ejercicio-3-método-mixto",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "2.3 Ejercicio 3 — Método mixto",
+    "text": "2.3 Ejercicio 3 — Método mixto\nCombina una ecuación de proyección con una de momento."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#ejercicio-4-rotación-del-sistema-de-referencia",
+    "href": "tp1/tp1_documento.html#ejercicio-4-rotación-del-sistema-de-referencia",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "3.1 Ejercicio 4 — Rotación del sistema de referencia",
+    "text": "3.1 Ejercicio 4 — Rotación del sistema de referencia\nSe trabaja con la Resultante del ejercicio 1. La terna de ejes se rota \\(+45°\\) en sentido antihorario, generando los ejes \\(X' - Y'\\).\nEl ejercicio pide calcular las nuevas componentes \\(R_{x'}\\) y \\(R_{y'}\\), y demostrar que:\n\\[|\\mathbf{R}| = \\sqrt{R_{x'}^2 + R_{y'}^2}\\]\ncoincide con el módulo obtenido en el ejercicio 1.\n\n\n\n\n\n\nTip\n\n\n\nSi el módulo cambia al rotar la terna, el error está en cómo se calcularon los ángulos locales de cada fuerza respecto a los nuevos ejes."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#ejercicio-5-sistema-de-ejes-oblicuos",
+    "href": "tp1/tp1_documento.html#ejercicio-5-sistema-de-ejes-oblicuos",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "3.2 Ejercicio 5 — Sistema de ejes oblicuos",
+    "text": "3.2 Ejercicio 5 — Sistema de ejes oblicuos\nSe trabaja con el sistema del ejercicio 2. Los ejes \\(X'' - Y''\\) están rotados \\(+40°\\) y \\(+60°\\) respectivamente en sentido horario respecto a la terna original. El ángulo entre ambos ejes no es 90°.\n\n\n\n\n\n\nAdvertencia\n\n\n\nProhibido Pitágoras. Cuando los ejes no son perpendiculares, el módulo de la Resultante se obtiene por la ley de cosenos:\n\\[R^2 = R_{x''}^2 + R_{y''}^2 + 2\\,R_{x''}\\,R_{y''}\\cos\\alpha\\]\ndonde \\(\\alpha\\) es el ángulo entre los ejes. El ejercicio pide justificar explícitamente por qué Pitágoras no aplica.\n\n\nLa verificación es gráfica mediante el método del paralelogramo con los ejes oblicuos."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#parte-a-descomposición-en-direcciones-oblicuas",
+    "href": "tp1/tp1_documento.html#parte-a-descomposición-en-direcciones-oblicuas",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "4.1 Parte a) — Descomposición en direcciones oblicuas",
+    "text": "4.1 Parte a) — Descomposición en direcciones oblicuas\nLa Resultante se descompone en dos direcciones no ortogonales: dirección \\(a\\) (a 30°) y dirección \\(b\\) (a 140°).\n\n\n\n\n\n\nNota\n\n\n\nComo las direcciones no son perpendiculares entre sí, no se puede aplicar la descomposición cartesiana estándar. El procedimiento es el método del paralelogramo o la ley de senos."
+  },
+  {
+    "objectID": "tp1/tp1_documento.html#parte-b-traslación-y-par-de-transporte",
+    "href": "tp1/tp1_documento.html#parte-b-traslación-y-par-de-transporte",
+    "title": "Fuerzas Concurrentes en el Plano",
+    "section": "4.2 Parte b) — Traslación y par de transporte",
+    "text": "4.2 Parte b) — Traslación y par de transporte\nTrasladar el punto de aplicación de una fuerza no es gratis. El sistema original se mantiene equivalente solo si se agrega un par de transporte:\n\\[M_{\\text{par}} = \\mathbf{R} \\times d\\]\nEl ejercicio pide trasladar la Resultante a los puntos \\(A(-4,\\,1)\\) m y \\(B(2,\\,3)\\) m, determinando el par de transporte en cada caso.\nLa fuerza es idéntica en A y en B. Los pares son distintos porque las distancias a la recta de acción original son distintas."
+  }
+]
