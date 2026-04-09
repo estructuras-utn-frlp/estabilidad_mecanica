@@ -1,9 +1,9 @@
 ---
-title: "Estabilidad"
-subtitle: "Ingeniería Civil · UTN FRLP · 2026"
+title: "Estabilidad 1"
+subtitle: "Ingeniería Mecanica · UTN FRLP · 2026"
 ---
 
-**Prof. Titular:** Ing. Daniel Zangara  
+**Prof. Titular:** Ing. Augusto Vaello
 **JTP:** Ing. Jorge Ronconi
 
 ---
