@@ -1,0 +1,199 @@
+---
+title: "Fuerzas Concurrentes en el Plano"
+subtitle: "TP N°1 — Estabilidad 1 · 2° año Ingeniería Mecanica"
+author: "Cátedra: Ing. Vaello / Ing. Ronconi"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+    footer: "Estabilidad 1 — UTN FRLP · 2026"
+    scrollable: true
+---
+
+## ¿Qué plantea este TP?
+
+Nueve ejercicios sobre un solo concepto:
+
+> Un sistema de fuerzas concurrentes puede reemplazarse por **una fuerza única equivalente**.
+
+Cada ejercicio hace una pregunta distinta sobre ese mismo fenómeno físico.
+
+---
+
+## Estructura general
+
+| Ejercicios | Qué se pregunta |
+|---|---|
+| 1, 2, 3 | Misma figura, tres métodos distintos |
+| 4, 5 | Mismo resultado, otra terna de referencia |
+| 6 | ¿Qué pasa si cambio el punto de aplicación? |
+| 7 | ¿Cómo hago para que no haya resultante? |
+| 8 | ¿Cómo anulo cada uno de los sistemas anteriores? |
+| 9 | ¿Cómo varía el efecto de giro según el punto? |
+
+---
+
+## Ejercicios 1, 2 y 3 — tres métodos, misma figura
+
+La **Figura 1** tiene 6 fuerzas ($F_1$ a $F_6$). Cada ejercicio trabaja con un subconjunto distinto:
+
+- **Ej. 1:** $\{F_1, F_2, F_3, F_4, F_5\}$ → método de **proyecciones**
+- **Ej. 2:** $\{F_2, F_3, F_4, F_5, F_6\}$ → método de **momentos** (dos puntos fuera de los ejes)
+- **Ej. 3:** $\{F_1, F_3, F_4, F_5, F_6\}$ → **método mixto** (una proyección + un momento)
+
+::: {.callout-note}
+Los tres ejercicios también piden verificación **gráfica** (polígono de fuerzas).  
+El método mixto del Ej. 3 es la verificación cruzada: si dos caminos independientes coinciden, el cálculo es confiable.
+:::
+
+---
+
+## Ejercicio 1 — Proyecciones
+
+$$R_x = \sum F_i \cos\theta_i \qquad R_y = \sum F_i \sin\theta_i$$
+
+$$|\mathbf{R}| = \sqrt{R_x^2 + R_y^2} \qquad \theta_R = \arctan\!\left(\frac{R_y}{R_x}\right)$$
+
+Proyectás cada fuerza sobre X e Y, sumás, aplicás Pitágoras.
+
+::: {.callout-warning}
+**Condición que se da por sobreentendida:** los ejes son perpendiculares.  
+Por eso Pitágoras funciona. En el ejercicio 5 eso va a dejar de ser cierto.
+:::
+
+---
+
+## Ejercicio 2 — Momentos y Varignon
+
+$$M_O(\mathbf{R}) = \sum_{i} M_O(\mathbf{F}_i)$$
+
+El ejercicio pide **dos ecuaciones de momentos** respecto a puntos que **no pertenecen a los ejes coordenados**.
+
+::: {.callout-tip}
+**¿Por qué puntos fuera de los ejes?**  
+Si el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería sentido.  
+Elegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca.
+:::
+
+::: {.callout-note}
+El método de momentos también determina la **ubicación de la recta de acción** de la resultante, no solo su módulo y dirección. Eso es información adicional que las proyecciones no dan directamente.
+:::
+
+---
+
+## Ejercicio 3 — Método mixto
+
+Una ecuación de proyección + una ecuación de momento.
+
+Si los dos resultados son consistentes → el cálculo es correcto.  
+Si no lo son → hay un error en alguno de los dos pasos.
+
+> Esta es la lógica de auditoría que usa un calculista antes de avanzar.
+
+---
+
+## Ejercicios 4 y 5 — otra terna, el mismo resultado
+
+El sistema de fuerzas **no cambia**. Lo que cambia es el sistema de referencia.
+
+**Ejercicio 4:** terna rotada $+45°$ (antihorario). Calcular $R_{x'}$ y $R_{y'}$.
+
+**Verificación obligatoria:**
+$$|\mathbf{R}| = \sqrt{R_{x'}^2 + R_{y'}^2} \quad \text{debe coincidir con el Ej. 1}$$
+
+::: {.callout-tip}
+Si el módulo cambia al rotar la terna, el error está en los ángulos locales de cada fuerza respecto a los nuevos ejes.
+:::
+
+---
+
+## Ejercicio 5 — ejes oblicuos (no ortogonales)
+
+Eje $X''$ rotado $+40°$ y eje $Y''$ rotado $+60°$, **ambos en sentido horario**.  
+El ángulo entre los dos ejes **no es 90°**.
+
+::: {.callout-warning}
+**Prohibido Pitágoras.**  
+Cuando los ejes no son perpendiculares, el módulo se obtiene por la **ley de cosenos**:
+
+$$|\mathbf{R}|^2 = R_{x''}^2 + R_{y''}^2 + 2\,R_{x''} R_{y''} \cos\alpha$$
+
+donde $\alpha$ es el ángulo entre los ejes. El ejercicio pide justificar esto explícitamente.
+:::
+
+La verificación es gráfica: **método del paralelogramo** con los dos ejes oblicuos.
+
+---
+
+## Ejercicio 6 — descomposición y par de transporte
+
+Dos partes con la resultante del Ej. 3:
+
+**Parte a)** Descomponer $\mathbf{R}$ en dos direcciones oblicuas: $a$ (a 30°) y $b$ (a 140°).
+
+::: {.callout-note}
+Estas dos direcciones no son perpendiculares entre sí. No es una descomposición cartesiana estándar.  
+Se resuelve por el **método del paralelogramo** o por la ley de senos.
+:::
+
+**Parte b)** Trasladar $\mathbf{R}$ a los puntos $A(-4, 1)$ m y $B(2, 3)$ m.
+
+Al trasladar una fuerza, el sistema original se mantiene equivalente solo si se agrega un **par de transporte**:
+
+$$M_{\text{par}} = \mathbf{R} \times d$$
+
+La fuerza es la misma en A y en B. Los pares son distintos porque las distancias son distintas.
+
+---
+
+## Ejercicio 7 — equilibrio del semáforo
+
+Un semáforo de $P = 0{,}125 \, \text{kN}$ cuelga de un cable vertical, unido a dos cables fijos que forman $37°$ y $53°$ con la horizontal.
+
+Condición de equilibrio:
+$$\sum F_x = 0 \qquad \sum F_y = 0$$
+
+::: {.callout-tip}
+**Verificación gráfica:** polígono de fuerzas cerrado.  
+Si el sistema está en equilibrio, la última fuerza debe devolverte exactamente al punto de partida del diagrama.
+:::
+
+::: {.callout-warning}
+Unidades: el enunciado da el peso en **kN**. Trabajar en kN durante todo el ejercicio.
+:::
+
+---
+
+## Ejercicio 8 — equilibrante de cada sistema
+
+Para los tres subconjuntos de los Ej. 1, 2 y 3, determinar el vector equilibrante $\mathbf{E}$:
+
+$$\mathbf{E} = -\mathbf{R}$$
+
+| Sistema | Método pedido |
+|---|---|
+| $\mathbf{E}_1$ (del Ej. 1) | Analítico + polígono cerrado |
+| $\mathbf{E}_2$ (del Ej. 2) | Momentos, verificar $\sum M = 0$ |
+| $\mathbf{E}_3$ (del Ej. 3) | Método mixto |
+
+::: {.callout-warning}
+**Error frecuente:** la equilibrante tiene el mismo módulo que la resultante, misma línea de acción, pero **sentido opuesto** y actúa en el **mismo punto de aplicación**.  
+No es simplemente cambiar el signo del vector en el gráfico.
+:::
+
+---
+
+## Ejercicio 9 — variación del momento y Varignon
+
+Usando la resultante del Ej. 1, estudiar cómo varía el momento según el punto de aplicación.
+
+**a)** Calcular el momento de $\mathbf{R}$ respecto a un punto genérico $P(0, y)$ sobre el eje de ordenadas.  
+**b)** Encontrar el valor de $y_P$ tal que $M = 20 \, \text{kN·m}$ horario.  
+**c)** Verificar aplicando **Varignon** con cada fuerza individual.
+
+::: {.callout-note}
+**¿Por qué tiene sentido este ejercicio?**  
+El momento de una fuerza no es fijo: depende del punto respecto al cual se mide.  
+Varignon permite calcularlo sin conocer explícitamente la recta de acción de la resultante.
+:::

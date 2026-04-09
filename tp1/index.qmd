@@ -1,0 +1,22 @@
+---
+title: "TP N°1 — Fuerzas Concurrentes en el Plano"
+---
+
+## Enunciado
+
+El enunciado completo está disponible para descargar:
+
+[📄 Descargar enunciado (PDF)](tp1_enunciado.pdf)
+
+## Explicación
+
+La siguiente sección desarrolla los conceptos necesarios para resolver
+cada ejercicio del TP.
+
+{{< include tp1_documento.qmd >}}
+
+## Presentación de clase
+
+La presentación utilizada en clase está disponible en:
+
+[▶ Ver presentación](tp1_presentacion.qmd)

@@ -1,0 +1,200 @@
+---
+title: "Fuerzas Concurrentes en el Plano"
+subtitle: "TP N°1 — Estabilidad 1 · 2° año Ingeniería Mecanica"
+author: "Cátedra: Ing. Vaello / Ing. Ronconi"
+date: today
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    self-contained: true
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: margin=2.5cm
+    number-sections: true
+    toc: true
+    fontsize: 11pt
+---
+
+# Introducción: el concepto de Resultante
+
+En aplicaciones reales — un nudo de cercha, el anclaje de un puente, la unión de una viga — las fuerzas no actúan de a una. El nudo experimenta la acción simultánea de múltiples fuerzas. La **Resultante** es la fuerza única que produce el mismo efecto mecánico que todo ese sistema.
+
+::: {.callout-note}
+El nudo no discrimina métodos analíticos ni gráficos. El nudo siente un solo tirón: la Resultante.
+:::
+
+**Pregunta de apertura:** ¿Cambia el módulo de la Resultante si se miden los ángulos desde el eje X o desde el eje Y?  
+→ No. La Resultante es invariante respecto al sistema de referencia. Los ejercicios 4 y 5 demuestran esto explícitamente.
+
+# Ejercicios 1, 2 y 3 — tres métodos sobre la misma figura
+
+La Figura 1 del TP presenta un sistema de 6 fuerzas concurrentes ($F_1$ a $F_6$). Cada uno de los primeros tres ejercicios trabaja con un subconjunto distinto y aplica un método diferente para hallar la Resultante.
+
+| Ejercicio | Subconjunto | Método |
+|---|---|---|
+| 1 | $\{F_1, F_2, F_3, F_4, F_5\}$ | Proyecciones analíticas |
+| 2 | $\{F_2, F_3, F_4, F_5, F_6\}$ | Momentos (Teorema de Varignon) |
+| 3 | $\{F_1, F_3, F_4, F_5, F_6\}$ | Método mixto |
+
+Los tres ejercicios incluyen verificación gráfica mediante el polígono de fuerzas.
+
+## Ejercicio 1 — Proyecciones analíticas
+
+Las componentes cartesianas de la Resultante se obtienen sumando las proyecciones de cada fuerza sobre los ejes X e Y:
+
+$$R_x = \sum_{i=1}^{n} F_i \cos\theta_i \qquad R_y = \sum_{i=1}^{n} F_i \sin\theta_i$$
+
+El módulo y la dirección resultan:
+
+$$R = \sqrt{R_x^2 + R_y^2} \qquad \theta_R = \arctan\!\left(\frac{R_y}{R_x}\right)$$
+
+::: {.callout-warning}
+**Condición implícita:** Pitágoras aplica únicamente cuando los ejes son **ortogonales**. En el ejercicio 5 esa condición deja de cumplirse.
+:::
+
+## Ejercicio 2 — Momentos y Teorema de Varignon
+
+El momento de una fuerza respecto a un punto O es:
+
+$$M_O(\mathbf{F}) = F \cdot d$$
+
+donde $d$ es el brazo de palanca (distancia perpendicular de O a la línea de acción de $\mathbf{F}$).
+
+**Teorema de Varignon:**
+
+$$M_O(\mathbf{R}) = \sum_{i=1}^{n} M_O(\mathbf{F}_i)$$
+
+El ejercicio pide plantear **dos ecuaciones de momentos** respecto a puntos que no pertenezcan a los ejes coordenados.
+
+::: {.callout-tip}
+Elegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca, lo que consolida el procedimiento. Si el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería riqueza.
+:::
+
+::: {.callout-note}
+El método de momentos también determina la **ubicación de la recta de acción** de la Resultante, información que las proyecciones no proveen directamente.
+:::
+
+## Ejercicio 3 — Método mixto
+
+Combina una ecuación de proyección con una de momento.
+
+# Ejercicios 4 y 5 — invarianza de la Resultante
+
+El sistema de fuerzas no cambia. Lo que cambia es el sistema de referencia.
+
+## Ejercicio 4 — Rotación del sistema de referencia
+
+Se trabaja con la Resultante del ejercicio 1. La terna de ejes se rota $+45°$ en sentido antihorario, generando los ejes $X' - Y'$.
+
+El ejercicio pide calcular las nuevas componentes $R_{x'}$ y $R_{y'}$, y demostrar que:
+
+$$|\mathbf{R}| = \sqrt{R_{x'}^2 + R_{y'}^2}$$
+
+coincide con el módulo obtenido en el ejercicio 1.
+
+::: {.callout-tip}
+Si el módulo cambia al rotar la terna, el error está en cómo se calcularon los ángulos locales de cada fuerza respecto a los nuevos ejes.
+:::
+
+## Ejercicio 5 — Sistema de ejes oblicuos
+
+Se trabaja con el sistema del ejercicio 2. Los ejes $X'' - Y''$ están rotados $+40°$ y $+60°$ respectivamente en sentido **horario** respecto a la terna original. El ángulo entre ambos ejes no es 90°.
+
+::: {.callout-warning}
+**Prohibido Pitágoras.** Cuando los ejes no son perpendiculares, el módulo de la Resultante se obtiene por la **ley de cosenos**:
+
+$$R^2 = R_{x''}^2 + R_{y''}^2 + 2\,R_{x''}\,R_{y''}\cos\alpha$$
+
+donde $\alpha$ es el ángulo entre los ejes. El ejercicio pide **justificar explícitamente** por qué Pitágoras no aplica.
+:::
+
+La verificación es gráfica mediante el **método del paralelogramo** con los ejes oblicuos.
+
+# Ejercicio 6 — Descomposición y par de transporte
+
+Se trabaja con la Resultante del ejercicio 3.
+
+## Parte a) — Descomposición en direcciones oblicuas
+
+La Resultante se descompone en dos direcciones no ortogonales: dirección $a$ (a 30°) y dirección $b$ (a 140°).
+
+::: {.callout-note}
+Como las direcciones no son perpendiculares entre sí, no se puede aplicar la descomposición cartesiana estándar. El procedimiento es el **método del paralelogramo** o la ley de senos.
+:::
+
+## Parte b) — Traslación y par de transporte
+
+Trasladar el punto de aplicación de una fuerza no es gratis. El sistema original se mantiene equivalente solo si se agrega un **par de transporte**:
+
+$$M_{\text{par}} = \mathbf{R} \times d$$
+
+El ejercicio pide trasladar la Resultante a los puntos $A(-4,\,1)$ m y $B(2,\,3)$ m, determinando el par de transporte en cada caso.
+
+La fuerza es idéntica en A y en B. Los pares son distintos porque las distancias a la recta de acción original son distintas.
+
+# Ejercicio 7 — Equilibrio: el semáforo
+
+Un semáforo de peso $P = 0{,}125\,\text{kN}$ cuelga de un cable vertical unido a otros dos cables fijos a un soporte superior, que forman ángulos de $37°$ y $53°$ con la horizontal.
+
+La condición de equilibrio es:
+
+$$\sum \mathbf{F}_i = \mathbf{0} \quad \Leftrightarrow \quad \sum F_x = 0 \quad \text{y} \quad \sum F_y = 0$$
+
+Se pide determinar la tracción en los tres cables.
+
+**Interpretación gráfica:** el polígono de fuerzas cierra. La última fuerza regresa exactamente al punto de partida del diagrama; cualquier desvío indica error.
+
+::: {.callout-warning}
+El enunciado da el peso en **kN**. Trabajar en kN durante todo el ejercicio.
+:::
+
+# Ejercicio 8 — Equilibrante de cada sistema
+
+| Concepto | Definición |
+|---|---|
+| **Resultante** $\mathbf{R}$ | Fuerza única equivalente al sistema. Lo que *le pasa* al nudo. |
+| **Equilibrante** $\mathbf{E}$ | Fuerza necesaria para anular la Resultante. Lo que *se aplica* para que el nudo no se mueva. |
+
+$$\mathbf{E} = -\mathbf{R}$$
+
+El ejercicio pide determinar la equilibrante para los tres sistemas de los ejercicios 1, 2 y 3, usando en cada caso el mismo método que se empleó para hallar la Resultante:
+
+| Sistema | Método |
+|---|---|
+| $\mathbf{E}_1$ (del Ej. 1) | Analítico + verificación por polígono cerrado |
+| $\mathbf{E}_2$ (del Ej. 2) | Momentos, verificar $\sum M = 0$ respecto a un punto arbitrario |
+| $\mathbf{E}_3$ (del Ej. 3) | Método mixto |
+
+::: {.callout-warning}
+**Error frecuente:** la equilibrante actúa en el **mismo punto de aplicación** que la Resultante, con sentido contrario. No es simplemente cambiar el signo del vector en el gráfico sin verificar el punto.
+:::
+
+# Ejercicio 9 — Variación del momento y Teorema de Varignon
+
+Usando la Resultante del ejercicio 1, el ejercicio estudia cómo varía el efecto de giro según el punto respecto al cual se mide.
+
+Se pide:
+
+a) Calcular el momento de $\mathbf{R}$ respecto a un punto genérico $P(0,\,y)$ sobre el eje de ordenadas.
+b) Determinar la coordenada $y_P$ para la cual el momento sea de $20\,\text{kN·m}$ en sentido horario.
+c) Verificar el resultado aplicando el Teorema de Varignon con las fuerzas individuales del subconjunto.
+
+::: {.callout-note}
+El momento de una fuerza no es una propiedad fija: depende del punto respecto al cual se mide. Varignon permite calcularlo descomponiendo la fuerza en sus componentes, lo que suele simplificar el cálculo de brazos de palanca.
+:::
+
+# Síntesis
+
+1. La Resultante es invariante respecto al sistema de referencia (demostrado en ej. 4 y 5).
+2. Proyecciones, momentos y método mixto son herramientas complementarias; el método mixto es la herramienta de auditoría.
+3. En sistemas oblicuos, Pitágoras no aplica — usar ley de cosenos (ej. 5).
+4. Descomponer en direcciones no ortogonales requiere paralelogramo o ley de senos (ej. 6a).
+5. Trasladar fuerzas introduce momentos adicionales — par de transporte (ej. 6b).
+6. Equilibrio equivale a Resultante nula y polígono vectorial cerrado (ej. 7).
+7. Equilibrante $= -\mathbf{R}$: mismo módulo y línea de acción, sentido contrario, mismo punto de aplicación (ej. 8).
+8. El momento varía con el punto de referencia; Varignon permite calcularlo por descomposición (ej. 9).

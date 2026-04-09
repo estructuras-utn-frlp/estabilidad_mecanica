@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Estabilidad 1 — UTN FRLP"
+  navbar:
+    left:
+      - text: "Inicio"
+        href: index.qmd
+      - text: "Trabajos Prácticos"
+        menu:
+          - text: "TP1 — Fuerzas Concurrentes"
+            href: tp1/index.qmd
+  page-footer:
+    center: "Cátedra Vaello / Ronconi · Ingeniería Mecanica 2026"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    lang: es

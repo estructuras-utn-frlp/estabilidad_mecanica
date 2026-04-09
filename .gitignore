@@ -1,0 +1,17 @@
+# Quarto output
+/.quarto/
+build/
+*index.pdf
+
+# LaTeX auxiliares
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Quarto intermediate
+*_files/
+**/*.quarto_ipynb

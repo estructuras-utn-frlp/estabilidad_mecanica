@@ -1,0 +1,15 @@
+---
+title: "Estabilidad"
+subtitle: "Ingeniería Civil · UTN FRLP · 2026"
+---
+
+**Prof. Titular:** Ing. Daniel Zangara  
+**JTP:** Ing. Jorge Ronconi
+
+---
+
+## Trabajos Prácticos
+
+| TP | Tema | |
+|---|---|---|
+| TP1 | Fuerzas Concurrentes en el Plano | [Ver](tp1/index.qmd) |

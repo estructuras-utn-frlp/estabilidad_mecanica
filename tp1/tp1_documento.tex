@@ -1,0 +1,543 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  spanish,
+  11pt,
+  a4paper,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Tabla de contenidos}
+\else
+  \newcommand\contentsname{Tabla de contenidos}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Listado de Figuras}
+\else
+  \newcommand\listfigurename{Listado de Figuras}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Listado de Tablas}
+\else
+  \newcommand\listtablename{Listado de Tablas}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabla}
+\else
+  \newcommand\tablename{Tabla}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listado}
+\newcommand*\listoflistings{\listof{codelisting}{Listado de Listados}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Fuerzas Concurrentes en el Plano},
+  pdfauthor={Cátedra: Ing. Vaello / Ing. Ronconi},
+  pdflang={es},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Fuerzas Concurrentes en el Plano}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{TP N°1 --- Estabilidad 1 · 2° año Ingeniería Mecanica}
+\author{Cátedra: Ing. Vaello / Ing. Ronconi}
+\date{2026-04-09}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Tabla de contenidos}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Introducción: el concepto de
+Resultante}\label{introducciuxf3n-el-concepto-de-resultante}
+
+En aplicaciones reales --- un nudo de cercha, el anclaje de un puente,
+la unión de una viga --- las fuerzas no actúan de a una. El nudo
+experimenta la acción simultánea de múltiples fuerzas. La
+\textbf{Resultante} es la fuerza única que produce el mismo efecto
+mecánico que todo ese sistema.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, coltitle=black, colframe=quarto-callout-note-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, breakable, arc=.35mm]
+
+El nudo no discrimina métodos analíticos ni gráficos. El nudo siente un
+solo tirón: la Resultante.
+
+\end{tcolorbox}
+
+\textbf{Pregunta de apertura:} ¿Cambia el módulo de la Resultante si se
+miden los ángulos desde el eje X o desde el eje Y?\\
+→ No.~La Resultante es invariante respecto al sistema de referencia. Los
+ejercicios 4 y 5 demuestran esto explícitamente.
+
+\section{Ejercicios 1, 2 y 3 --- tres métodos sobre la misma
+figura}\label{ejercicios-1-2-y-3-tres-muxe9todos-sobre-la-misma-figura}
+
+La Figura 1 del TP presenta un sistema de 6 fuerzas concurrentes
+(\(F_1\) a \(F_6\)). Cada uno de los primeros tres ejercicios trabaja
+con un subconjunto distinto y aplica un método diferente para hallar la
+Resultante.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Ejercicio & Subconjunto & Método \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & \(\{F_1, F_2, F_3, F_4, F_5\}\) & Proyecciones analíticas \\
+2 & \(\{F_2, F_3, F_4, F_5, F_6\}\) & Momentos (Teorema de Varignon) \\
+3 & \(\{F_1, F_3, F_4, F_5, F_6\}\) & Método mixto \\
+\end{longtable}
+
+Los tres ejercicios incluyen verificación gráfica mediante el polígono
+de fuerzas.
+
+\subsection{Ejercicio 1 --- Proyecciones
+analíticas}\label{ejercicio-1-proyecciones-analuxedticas}
+
+Las componentes cartesianas de la Resultante se obtienen sumando las
+proyecciones de cada fuerza sobre los ejes X e Y:
+
+\[R_x = \sum_{i=1}^{n} F_i \cos\theta_i \qquad R_y = \sum_{i=1}^{n} F_i \sin\theta_i\]
+
+El módulo y la dirección resultan:
+
+\[R = \sqrt{R_x^2 + R_y^2} \qquad \theta_R = \arctan\!\left(\frac{R_y}{R_x}\right)\]
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Advertencia}, coltitle=black, colframe=quarto-callout-warning-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, breakable, arc=.35mm]
+
+\textbf{Condición implícita:} Pitágoras aplica únicamente cuando los
+ejes son \textbf{ortogonales}. En el ejercicio 5 esa condición deja de
+cumplirse.
+
+\end{tcolorbox}
+
+\subsection{Ejercicio 2 --- Momentos y Teorema de
+Varignon}\label{ejercicio-2-momentos-y-teorema-de-varignon}
+
+El momento de una fuerza respecto a un punto O es:
+
+\[M_O(\mathbf{F}) = F \cdot d\]
+
+donde \(d\) es el brazo de palanca (distancia perpendicular de O a la
+línea de acción de \(\mathbf{F}\)).
+
+\textbf{Teorema de Varignon:}
+
+\[M_O(\mathbf{R}) = \sum_{i=1}^{n} M_O(\mathbf{F}_i)\]
+
+El ejercicio pide plantear \textbf{dos ecuaciones de momentos} respecto
+a puntos que no pertenezcan a los ejes coordenados.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, colframe=quarto-callout-tip-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, breakable, arc=.35mm]
+
+Elegir puntos fuera de los ejes fuerza a calcular todos los brazos de
+palanca, lo que consolida el procedimiento. Si el punto estuviera sobre
+un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería
+riqueza.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, coltitle=black, colframe=quarto-callout-note-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, breakable, arc=.35mm]
+
+El método de momentos también determina la \textbf{ubicación de la recta
+de acción} de la Resultante, información que las proyecciones no proveen
+directamente.
+
+\end{tcolorbox}
+
+\subsection{Ejercicio 3 --- Método
+mixto}\label{ejercicio-3-muxe9todo-mixto}
+
+Combina una ecuación de proyección con una de momento.
+
+\section{Ejercicios 4 y 5 --- invarianza de la
+Resultante}\label{ejercicios-4-y-5-invarianza-de-la-resultante}
+
+El sistema de fuerzas no cambia. Lo que cambia es el sistema de
+referencia.
+
+\subsection{Ejercicio 4 --- Rotación del sistema de
+referencia}\label{ejercicio-4-rotaciuxf3n-del-sistema-de-referencia}
+
+Se trabaja con la Resultante del ejercicio 1. La terna de ejes se rota
+\(+45°\) en sentido antihorario, generando los ejes \(X' - Y'\).
+
+El ejercicio pide calcular las nuevas componentes \(R_{x'}\) y
+\(R_{y'}\), y demostrar que:
+
+\[|\mathbf{R}| = \sqrt{R_{x'}^2 + R_{y'}^2}\]
+
+coincide con el módulo obtenido en el ejercicio 1.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Tip}, coltitle=black, colframe=quarto-callout-tip-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, breakable, arc=.35mm]
+
+Si el módulo cambia al rotar la terna, el error está en cómo se
+calcularon los ángulos locales de cada fuerza respecto a los nuevos
+ejes.
+
+\end{tcolorbox}
+
+\subsection{Ejercicio 5 --- Sistema de ejes
+oblicuos}\label{ejercicio-5-sistema-de-ejes-oblicuos}
+
+Se trabaja con el sistema del ejercicio 2. Los ejes \(X'' - Y''\) están
+rotados \(+40°\) y \(+60°\) respectivamente en sentido \textbf{horario}
+respecto a la terna original. El ángulo entre ambos ejes no es 90°.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Advertencia}, coltitle=black, colframe=quarto-callout-warning-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, breakable, arc=.35mm]
+
+\textbf{Prohibido Pitágoras.} Cuando los ejes no son perpendiculares, el
+módulo de la Resultante se obtiene por la \textbf{ley de cosenos}:
+
+\[R^2 = R_{x''}^2 + R_{y''}^2 + 2\,R_{x''}\,R_{y''}\cos\alpha\]
+
+donde \(\alpha\) es el ángulo entre los ejes. El ejercicio pide
+\textbf{justificar explícitamente} por qué Pitágoras no aplica.
+
+\end{tcolorbox}
+
+La verificación es gráfica mediante el \textbf{método del paralelogramo}
+con los ejes oblicuos.
+
+\section{Ejercicio 6 --- Descomposición y par de
+transporte}\label{ejercicio-6-descomposiciuxf3n-y-par-de-transporte}
+
+Se trabaja con la Resultante del ejercicio 3.
+
+\subsection{Parte a) --- Descomposición en direcciones
+oblicuas}\label{parte-a-descomposiciuxf3n-en-direcciones-oblicuas}
+
+La Resultante se descompone en dos direcciones no ortogonales: dirección
+\(a\) (a 30°) y dirección \(b\) (a 140°).
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, coltitle=black, colframe=quarto-callout-note-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, breakable, arc=.35mm]
+
+Como las direcciones no son perpendiculares entre sí, no se puede
+aplicar la descomposición cartesiana estándar. El procedimiento es el
+\textbf{método del paralelogramo} o la ley de senos.
+
+\end{tcolorbox}
+
+\subsection{Parte b) --- Traslación y par de
+transporte}\label{parte-b-traslaciuxf3n-y-par-de-transporte}
+
+Trasladar el punto de aplicación de una fuerza no es gratis. El sistema
+original se mantiene equivalente solo si se agrega un \textbf{par de
+transporte}:
+
+\[M_{\text{par}} = \mathbf{R} \times d\]
+
+El ejercicio pide trasladar la Resultante a los puntos \(A(-4,\,1)\) m y
+\(B(2,\,3)\) m, determinando el par de transporte en cada caso.
+
+La fuerza es idéntica en A y en B. Los pares son distintos porque las
+distancias a la recta de acción original son distintas.
+
+\section{Ejercicio 7 --- Equilibrio: el
+semáforo}\label{ejercicio-7-equilibrio-el-semuxe1foro}
+
+Un semáforo de peso \(P = 0{,}125\,\text{kN}\) cuelga de un cable
+vertical unido a otros dos cables fijos a un soporte superior, que
+forman ángulos de \(37°\) y \(53°\) con la horizontal.
+
+La condición de equilibrio es:
+
+\[\sum \mathbf{F}_i = \mathbf{0} \quad \Leftrightarrow \quad \sum F_x = 0 \quad \text{y} \quad \sum F_y = 0\]
+
+Se pide determinar la tracción en los tres cables.
+
+\textbf{Interpretación gráfica:} el polígono de fuerzas cierra. La
+última fuerza regresa exactamente al punto de partida del diagrama;
+cualquier desvío indica error.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Advertencia}, coltitle=black, colframe=quarto-callout-warning-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, breakable, arc=.35mm]
+
+El enunciado da el peso en \textbf{kN}. Trabajar en kN durante todo el
+ejercicio.
+
+\end{tcolorbox}
+
+\section{Ejercicio 8 --- Equilibrante de cada
+sistema}\label{ejercicio-8-equilibrante-de-cada-sistema}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Concepto
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definición
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Resultante} \(\mathbf{R}\) & Fuerza única equivalente al
+sistema. Lo que \emph{le pasa} al nudo. \\
+\textbf{Equilibrante} \(\mathbf{E}\) & Fuerza necesaria para anular la
+Resultante. Lo que \emph{se aplica} para que el nudo no se mueva. \\
+\end{longtable}
+
+\[\mathbf{E} = -\mathbf{R}\]
+
+El ejercicio pide determinar la equilibrante para los tres sistemas de
+los ejercicios 1, 2 y 3, usando en cada caso el mismo método que se
+empleó para hallar la Resultante:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Sistema
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Método
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\mathbf{E}_1\) (del Ej. 1) & Analítico + verificación por polígono
+cerrado \\
+\(\mathbf{E}_2\) (del Ej. 2) & Momentos, verificar \(\sum M = 0\)
+respecto a un punto arbitrario \\
+\(\mathbf{E}_3\) (del Ej. 3) & Método mixto \\
+\end{longtable}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Advertencia}, coltitle=black, colframe=quarto-callout-warning-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-warning-color!10!white, colback=white, breakable, arc=.35mm]
+
+\textbf{Error frecuente:} la equilibrante actúa en el \textbf{mismo
+punto de aplicación} que la Resultante, con sentido contrario. No es
+simplemente cambiar el signo del vector en el gráfico sin verificar el
+punto.
+
+\end{tcolorbox}
+
+\section{Ejercicio 9 --- Variación del momento y Teorema de
+Varignon}\label{ejercicio-9-variaciuxf3n-del-momento-y-teorema-de-varignon}
+
+Usando la Resultante del ejercicio 1, el ejercicio estudia cómo varía el
+efecto de giro según el punto respecto al cual se mide.
+
+Se pide:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calcular el momento de \(\mathbf{R}\) respecto a un punto genérico
+  \(P(0,\,y)\) sobre el eje de ordenadas.
+\item
+  Determinar la coordenada \(y_P\) para la cual el momento sea de
+  \(20\,\text{kN·m}\) en sentido horario.
+\item
+  Verificar el resultado aplicando el Teorema de Varignon con las
+  fuerzas individuales del subconjunto.
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, bottomtitle=1mm, titlerule=0mm, leftrule=.75mm, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Nota}, coltitle=black, colframe=quarto-callout-note-color-frame, left=2mm, opacitybacktitle=0.6, opacityback=0, toptitle=1mm, toprule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, breakable, arc=.35mm]
+
+El momento de una fuerza no es una propiedad fija: depende del punto
+respecto al cual se mide. Varignon permite calcularlo descomponiendo la
+fuerza en sus componentes, lo que suele simplificar el cálculo de brazos
+de palanca.
+
+\end{tcolorbox}
+
+\section{Síntesis}\label{suxedntesis}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  La Resultante es invariante respecto al sistema de referencia
+  (demostrado en ej. 4 y 5).
+\item
+  Proyecciones, momentos y método mixto son herramientas
+  complementarias; el método mixto es la herramienta de auditoría.
+\item
+  En sistemas oblicuos, Pitágoras no aplica --- usar ley de cosenos (ej.
+  5).
+\item
+  Descomponer en direcciones no ortogonales requiere paralelogramo o ley
+  de senos (ej. 6a).
+\item
+  Trasladar fuerzas introduce momentos adicionales --- par de transporte
+  (ej. 6b).
+\item
+  Equilibrio equivale a Resultante nula y polígono vectorial cerrado
+  (ej. 7).
+\item
+  Equilibrante \(= -\mathbf{R}\): mismo módulo y línea de acción,
+  sentido contrario, mismo punto de aplicación (ej. 8).
+\item
+  El momento varía con el punto de referencia; Varignon permite
+  calcularlo por descomposición (ej. 9).
+\end{enumerate}
+
+
+
+
+\end{document}
