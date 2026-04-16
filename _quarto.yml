@@ -12,6 +12,8 @@ website:
         menu:
           - text: "TP1 — Fuerzas Concurrentes"
             href: tp1/index.qmd
+          - text: "TP! - Fuerzas No Concurrentes"
+            href: tp2/index.qmd
   page-footer:
     center: "Cátedra Vaello / Ronconi · Ingeniería Mecanica 2026"
 

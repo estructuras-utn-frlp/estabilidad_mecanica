@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  body { font-family: sans-serif; margin: 0; background: #fafafa; }
+  #container { max-width: 920px; margin: 0 auto; padding: 10px; }
+  #panels { display: flex; gap: 10px; }
+  .panel-label { font-size: 11px; color: #666; margin-bottom: 4px; }
+  svg { border: 1px solid #ddd; background: #fff; }
+  #controls { margin-top: 10px; display: flex; align-items: center; gap: 12px; }
+  button {
+    padding: 7px 18px; border: none; border-radius: 4px;
+    cursor: pointer; font-size: 13px; color: white;
+  }
+  #btn-next  { background: #2c5f8a; }
+  #btn-reset { background: #888; }
+  #step-label {
+    font-size: 12px; color: #333; max-width: 520px;
+    background: #f0f4f8; padding: 6px 10px; border-radius: 4px;
+    border-left: 3px solid #2c5f8a;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="panels">
+    <div>
+      <div class="panel-label">Plano de fuerzas</div>
+      <svg id="svg-plano" width="540" height="480"></svg>
+    </div>
+    <div>
+      <div class="panel-label">Polígono de fuerzas</div>
+      <svg id="svg-poli" width="340" height="480"></svg>
+    </div>
+  </div>
+  <div id="controls">
+    <button id="btn-next">Siguiente →</button>
+    <button id="btn-reset">↺ Reiniciar</button>
+    <div id="step-label"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+(function () {
+
+  // ── Transformaciones ──────────────────────────────────────────
+  // Plano
+  const PCX = 200, PCY = 300, PSC = 48;
+  function tx(x) { return PCX + x * PSC; }
+  function ty(y) { return PCY - y * PSC; }
+
+  // Polígono
+  const QCX = 170, QCY = 380, QSC = 13;
+  function qx(x) { return QCX + x * QSC; }
+  function qy(y) { return QCY - y * QSC; }
+
+  // ── Datos del problema ────────────────────────────────────────
+  const ANG_P  = 20  * Math.PI / 180;
+  const ANG_A  = 55  * Math.PI / 180;
+  const PMAG   = 12;
+
+  // P aplicada en (1, -1)
+  const P0x = 1, P0y = -1;
+  const Pvx = PMAG * Math.cos(ANG_P);
+  const Pvy = PMAG * Math.sin(ANG_P);
+
+  // Dirección a: pasa por (0,2) con ángulo 55°
+  // Dirección b: horizontal, pasa por (-4,0)
+  // Dirección c: vertical x=0
+
+  const t55 = Math.tan(ANG_A);
+  const t40 = Math.tan(ANG_P);
+
+  // Q: intersección de la recta de acción de P con la dirección a
+  // Recta de P: y - P0y = t40*(x - P0x)  →  y = t40*x + (P0y - t40*P0x)
+  // Recta a:    y - 2   = t55*(x - 0)    →  y = t55*x + 2
+  // Igualando: t40*x + (P0y - t40*P0x) = t55*x + 2
+  const bP = P0y - t40 * P0x;
+  const xQ = (2 - bP) / (t40 - t55);
+  const yQ = t55 * xQ + 2;
+
+  // D: intersección b (y=0) y c (x=0) → (0,0)
+  const xD = 0, yD = 0;
+
+  // Ángulo de la auxiliar Cullman Q→D
+  const ANG_QD = Math.atan2(yD - yQ, xD - xQ);
+
+  // Valores estimados para el polígono (ilustrativos)
+  const Fa_est   =  5.8;
+  const Raux_est =  9.2;
+  const Fb_est   = -6.8;
+  const Fc_est   = -4.9;
+
+  // ── SVGs ──────────────────────────────────────────────────────
+  const svgP = d3.select("#svg-plano");
+  const svgQ = d3.select("#svg-poli");
+
+  // ── Helpers ───────────────────────────────────────────────────
+  let arrowId = 0;
+  function mkMarker(sel, color) {
+    const id = "mk" + (arrowId++);
+    sel.append("defs").append("marker")
+      .attr("id", id).attr("viewBox","0 0 10 10")
+      .attr("refX", 8).attr("refY", 5)
+      .attr("markerWidth", 5).attr("markerHeight", 5)
+      .attr("orient", "auto")
+      .append("path").attr("d","M 0 0 L 10 5 L 0 10 z").attr("fill", color);
+    return id;
+  }
+
+  function arrow(sel, x1, y1, x2, y2, color, txFn, tyFn, lw=2) {
+    const mid = mkMarker(sel, color);
+    sel.append("line")
+      .attr("x1", txFn(x1)).attr("y1", tyFn(y1))
+      .attr("x2", txFn(x2)).attr("y2", tyFn(y2))
+      .attr("stroke", color).attr("stroke-width", lw)
+      .attr("marker-end", `url(#${mid})`);
+  }
+
+  function label(sel, x, y, text, color, txFn, tyFn, dx=6, dy=-6) {
+    sel.append("text")
+      .attr("x", txFn(x) + dx).attr("y", tyFn(y) + dy)
+      .text(text).attr("font-size", 12).attr("fill", color)
+      .attr("font-weight", "bold");
+  }
+
+  function dot(sel, x, y, color, txFn, tyFn, r=5) {
+    sel.append("circle")
+      .attr("cx", txFn(x)).attr("cy", tyFn(y))
+      .attr("r", r).attr("fill", color);
+  }
+
+  function extLine(sel, angle, px, py, color, lbl, txFn, tyFn) {
+    const ex = Math.cos(angle), ey = Math.sin(angle);
+    sel.append("line")
+      .attr("x1", txFn(px - 7*ex)).attr("y1", tyFn(py - 7*ey))
+      .attr("x2", txFn(px + 7*ex)).attr("y2", tyFn(py + 7*ey))
+      .attr("stroke", color).attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "6,3").attr("opacity", 0.75);
+    sel.append("text")
+      .attr("x", txFn(px + 7*ex) + 4).attr("y", tyFn(py + 7*ey))
+      .text(lbl).attr("font-size", 13).attr("fill", color)
+      .attr("font-weight", "bold");
+  }
+
+  function axes(sel, txFn, tyFn, xRange, yRange) {
+    sel.append("line")
+      .attr("x1", txFn(xRange[0])).attr("y1", tyFn(0))
+      .attr("x2", txFn(xRange[1])).attr("y2", tyFn(0))
+      .attr("stroke", "#ccc").attr("stroke-width", 1);
+    sel.append("line")
+      .attr("x1", txFn(0)).attr("y1", tyFn(yRange[0]))
+      .attr("x2", txFn(0)).attr("y2", tyFn(yRange[1]))
+      .attr("stroke", "#ccc").attr("stroke-width", 1);
+    sel.append("text").attr("x", txFn(xRange[1]) - 12).attr("y", tyFn(0) - 5)
+      .text("X").attr("font-size", 11).attr("fill", "#aaa");
+    sel.append("text").attr("x", txFn(0) + 4).attr("y", tyFn(yRange[1]) + 14)
+      .text("Y").attr("font-size", 11).attr("fill", "#aaa");
+  }
+
+  // ── Escenas base ──────────────────────────────────────────────
+  function basePlano() {
+    svgP.selectAll("*").remove();
+    axes(svgP, tx, ty, [-5, 6], [-5, 6]);
+
+    // Rectas de acción
+    extLine(svgP, ANG_A,  0,  2, "#2c7bb6", "a", tx, ty);
+    extLine(svgP, 0,     -4,  0, "#1a9641", "b", tx, ty);
+
+    // Dirección c: vertical x=0 — dibujar aparte
+    svgP.append("line")
+      .attr("x1", tx(0)).attr("y1", ty(-5))
+      .attr("x2", tx(0)).attr("y2", ty(6))
+      .attr("stroke", "#d7191c").attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "6,3").attr("opacity", 0.75);
+    svgP.append("text").attr("x", tx(0) + 4).attr("y", ty(5.5))
+      .text("c").attr("font-size", 13).attr("fill", "#d7191c")
+      .attr("font-weight", "bold");
+
+    // Fuerza P desde (1, -1)
+    const escala = 2.2 / PMAG;
+    arrow(svgP,
+      P0x, P0y,
+      P0x + Pvx * escala, P0y + Pvy * escala,
+      "#8b008b", tx, ty, 2.5);
+    dot(svgP, P0x, P0y, "#8b008b", tx, ty);
+    svgP.append("text")
+      .attr("x", tx(P0x + Pvx * escala) + 6)
+      .attr("y", ty(P0y + Pvy * escala))
+      .text("P = 12 kN").attr("font-size", 11).attr("fill", "#8b008b");
+    svgP.append("text")
+      .attr("x", tx(P0x) - 30).attr("y", ty(P0y) + 14)
+      .text(`(${P0x}, ${P0y})`).attr("font-size", 9).attr("fill", "#888");
+  }
+
+  function basePoli() {
+    svgQ.selectAll("*").remove();
+    axes(svgQ, qx, qy, [-12, 14], [-8, 12]);
+    // P en el polígono desde origen
+    arrow(svgQ, 0, 0, Pvx, Pvy, "#8b008b", qx, qy, 2);
+    dot(svgQ, 0, 0, "#8b008b", qx, qy);
+    label(svgQ, 0, 0, "O", "#8b008b", qx, qy, 6, -6);
+    label(svgQ, Pvx, Pvy, "P", "#8b008b", qx, qy, 6, -6);
+  }
+
+  // ── Pasos ─────────────────────────────────────────────────────
+  const STEPS = [
+    {
+      text: "Sistema inicial: P aplicada en (1,−1) y las tres rectas de acción a, b, c.",
+      draw() {
+        basePlano();
+        basePoli();
+      }
+    },
+    {
+      text: "Paso 1: Q es el punto donde la recta de acción de P intersecta la dirección a.",
+      draw() {
+        basePlano();
+        basePoli();
+        // Q en plano
+        dot(svgP, xQ, yQ, "#e67e00", tx, ty, 6);
+        label(svgP, xQ, yQ, `Q (${xQ.toFixed(1)}, ${yQ.toFixed(1)})`,
+              "#e67e00", tx, ty, 8, -10);
+        // Extender recta de acción de P para mostrar que pasa por Q
+        const escB = P0y - t40 * P0x;
+        const xFin = 4;
+        svgP.append("line")
+          .attr("x1", tx(P0x - 2)).attr("y1", ty(t40*(P0x-2) + escB))
+          .attr("x2", tx(xFin))   .attr("y2", ty(t40*xFin    + escB))
+          .attr("stroke", "#8b008b").attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4,3").attr("opacity", 0.5);
+        // En polígono
+        dot(svgQ, Pvx, Pvy, "#e67e00", qx, qy, 5);
+        svgQ.append("text")
+          .attr("x", qx(Pvx) + 6).attr("y", qy(Pvy) - 8)
+          .text("→ Q en plano").attr("font-size", 9).attr("fill", "#e67e00");
+      }
+    },
+    {
+      text: "Paso 2: D = b ∩ c = (0, 0). Desde D se descompondrá R_aux en Fb y Fc.",
+      draw() {
+        basePlano();
+        basePoli();
+        dot(svgP, xQ, yQ, "#e67e00", tx, ty, 6);
+        label(svgP, xQ, yQ, `Q`, "#e67e00", tx, ty, 8, -10);
+        dot(svgP, xD, yD, "#c0392b", tx, ty, 6);
+        label(svgP, xD, yD, "D (0, 0)", "#c0392b", tx, ty, 8, 16);
+        // En polígono
+        dot(svgQ, Pvx, Pvy, "#e67e00", qx, qy, 5);
+        dot(svgQ, 0,   0,   "#c0392b", qx, qy, 5);
+        label(svgQ, Pvx, Pvy, "Q", "#e67e00", qx, qy, 6, -8);
+        label(svgQ, 0,   0,   "D", "#c0392b", qx, qy, 6, 14);
+      }
+    },
+    {
+      text: "Paso 3: trazar la recta auxiliar de Cullman (Q → D).",
+      draw() {
+        basePlano();
+        basePoli();
+        dot(svgP, xQ, yQ, "#e67e00", tx, ty, 6);
+        label(svgP, xQ, yQ, "Q", "#e67e00", tx, ty, 8, -10);
+        dot(svgP, xD, yD, "#c0392b", tx, ty, 6);
+        label(svgP, xD, yD, "D", "#c0392b", tx, ty, 8, 16);
+        // Auxiliar en plano
+        svgP.append("line")
+          .attr("x1", tx(xQ)).attr("y1", ty(yQ))
+          .attr("x2", tx(xD)).attr("y2", ty(yD))
+          .attr("stroke", "#8e44ad").attr("stroke-width", 2.5);
+        svgP.append("text")
+          .attr("x", (tx(xQ)+tx(xD))/2 + 6)
+          .attr("y", (ty(yQ)+ty(yD))/2 - 8)
+          .text("Auxiliar Cullman").attr("font-size", 10)
+          .attr("fill", "#8e44ad");
+        // Auxiliar en polígono (referencia)
+        svgQ.append("line")
+          .attr("x1", qx(0)).attr("y1", qy(0))
+          .attr("x2", qx(Pvx)).attr("y2", qy(Pvy))
+          .attr("stroke", "#8e44ad").attr("stroke-width", 1.5)
+          .attr("stroke-dasharray", "4,3");
+        dot(svgQ, Pvx, Pvy, "#e67e00", qx, qy, 5);
+        dot(svgQ, 0,   0,   "#c0392b", qx, qy, 5);
+      }
+    },
+    {
+      text: "Paso 4: descomponer P en la dirección a (→ Fa) y la auxiliar QD (→ R_aux).",
+      draw() {
+        basePlano();
+        basePoli();
+        dot(svgP, xQ, yQ, "#e67e00", tx, ty, 6);
+        dot(svgP, xD, yD, "#c0392b", tx, ty, 6);
+        svgP.append("line")
+          .attr("x1", tx(xQ)).attr("y1", ty(yQ))
+          .attr("x2", tx(xD)).attr("y2", ty(yD))
+          .attr("stroke", "#8e44ad").attr("stroke-width", 1.5)
+          .attr("stroke-dasharray", "4,3");
+        
+        // Paralela a la dirección a pasando por Q
+        const parAx1 = xQ - 3 * Math.cos(ANG_A);
+        const parAy1 = yQ - 3 * Math.sin(ANG_A);
+        const parAx2 = xQ + 3 * Math.cos(ANG_A);
+        const parAy2 = yQ + 3 * Math.sin(ANG_A);
+        svgP.append("line")
+          .attr("x1", tx(parAx1)).attr("y1", ty(parAy1))
+          .attr("x2", tx(parAx2)).attr("y2", ty(parAy2))
+          .attr("stroke", "#2c7bb6").attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4,3").attr("opacity", 0.6);
+        
+        // Paralela a la auxiliar QD pasando por el extremo de P
+        const Pvx_end = P0x + Pvx * (2.2 / PMAG);
+        const Pvy_end = P0y + Pvy * (2.2 / PMAG);
+        const cosQD = Math.cos(ANG_QD);
+        const sinQD = Math.sin(ANG_QD);
+        const parAuxX1 = Pvx_end - 3 * cosQD;
+        const parAuxY1 = Pvy_end - 3 * sinQD;
+        const parAuxX2 = Pvx_end + 3 * cosQD;
+        const parAuxY2 = Pvy_end + 3 * sinQD;
+        svgP.append("line")
+          .attr("x1", tx(parAuxX1)).attr("y1", ty(parAuxY1))
+          .attr("x2", tx(parAuxX2)).attr("y2", ty(parAuxY2))
+          .attr("stroke", "#8e44ad").attr("stroke-width", 1)
+          .attr("stroke-dasharray", "4,3").attr("opacity", 0.6);
+        
+        // Fa desde Q en dirección a
+        const fax = xQ + Math.cos(ANG_A + Math.PI) * 1.8;
+        const fay = yQ + Math.sin(ANG_A + Math.PI) * 1.8;
+        arrow(svgP, xQ, yQ, fax, fay, "#2c7bb6", tx, ty);
+        label(svgP, fax, fay, "Fa", "#2c7bb6", tx, ty, -28, -6);
+        // R_aux de Q a D
+        arrow(svgP, xQ, yQ, xD, yD, "#8e44ad", tx, ty);
+        svgP.append("text")
+          .attr("x", (tx(xQ)+tx(xD))/2 - 32)
+          .attr("y", (ty(yQ)+ty(yD))/2 + 14)
+          .text("R_aux").attr("font-size", 10).attr("fill", "#8e44ad")
+          .attr("font-weight", "bold");
+        // Polígono: Fa + R_aux = P
+        const Fvx = Fa_est * Math.cos(ANG_A);
+        const Fvy = Fa_est * Math.sin(ANG_A);
+        arrow(svgQ, 0, 0, Fvx, Fvy, "#2c7bb6", qx, qy);
+        label(svgQ, Fvx, Fvy, "Fa", "#2c7bb6", qx, qy, 6, -6);
+        const Rvx = Raux_est * Math.cos(ANG_QD);
+        const Rvy = Raux_est * Math.sin(ANG_QD);
+        arrow(svgQ, Fvx, Fvy, Fvx+Rvx, Fvy+Rvy, "#8e44ad", qx, qy);
+        label(svgQ, Fvx+Rvx, Fvy+Rvy, "R_aux", "#8e44ad", qx, qy, 6, -6);
+        // Verificación P
+        svgQ.append("line")
+          .attr("x1", qx(0)).attr("y1", qy(0))
+          .attr("x2", qx(Pvx)).attr("y2", qy(Pvy))
+          .attr("stroke", "#8b008b").attr("stroke-width", 1.5)
+          .attr("stroke-dasharray", "5,3");
+      }
+    },
+    {
+      text: "Paso 5: descomponer R_aux en b y c desde D → Fb y Fc. Polígono cierra. ✓",
+      draw() {
+        basePlano();
+        basePoli();
+        dot(svgP, xQ, yQ, "#e67e00", tx, ty, 5);
+        dot(svgP, xD, yD, "#c0392b", tx, ty, 5);
+        // Fa
+        const fax = xQ + Math.cos(ANG_A + Math.PI) * 1.8;
+        const fay = yQ + Math.sin(ANG_A + Math.PI) * 1.8;
+        arrow(svgP, xQ, yQ, fax, fay, "#2c7bb6", tx, ty);
+        label(svgP, fax, fay, "Fa", "#2c7bb6", tx, ty, -28, -6);
+        // Fb y Fc desde D
+        arrow(svgP, xD, yD, xD - 2.2, yD,     "#1a9641", tx, ty);
+        label(svgP, xD - 2.2, yD, "Fb", "#1a9641", tx, ty, -20, -8);
+        arrow(svgP, xD, yD, xD,     yD - 1.8, "#d7191c", tx, ty);
+        label(svgP, xD, yD - 1.8, "Fc", "#d7191c", tx, ty, 8, -6);
+        // Polígono completo
+        const Fvx = Fa_est * Math.cos(ANG_A);
+        const Fvy = Fa_est * Math.sin(ANG_A);
+        arrow(svgQ, 0,   0,   Fvx,           Fvy,           "#2c7bb6", qx, qy);
+        label(svgQ, Fvx, Fvy, "Fa", "#2c7bb6", qx, qy, 6, -6);
+        arrow(svgQ, Fvx, Fvy, Fvx+Fb_est,    Fvy,           "#1a9641", qx, qy);
+        label(svgQ, Fvx+Fb_est, Fvy, "Fb", "#1a9641", qx, qy, 6, -6);
+        arrow(svgQ, Fvx+Fb_est, Fvy, Fvx+Fb_est, Fvy+Fc_est, "#d7191c", qx, qy);
+        label(svgQ, Fvx+Fb_est, Fvy+Fc_est, "Fc", "#d7191c", qx, qy, 6, -6);
+        // Cierre
+        const cx2 = Fvx + Fb_est, cy2 = Fvy + Fc_est;
+        svgQ.append("line")
+          .attr("x1", qx(cx2)).attr("y1", qy(cy2))
+          .attr("x2", qx(0)).attr("y2", qy(0))
+          .attr("stroke", "#8b008b").attr("stroke-width", 2)
+          .attr("stroke-dasharray", "5,3");
+        svgQ.append("text")
+          .attr("x", qx(cx2/2) + 4).attr("y", qy(cy2/2))
+          .text("P cierra ✓").attr("font-size", 10).attr("fill", "#8b008b");
+      }
+    }
+  ];
+
+  // ── Control ───────────────────────────────────────────────────
+  let current = 0;
+
+  function render() {
+    STEPS[current].draw();
+    document.getElementById("step-label").textContent =
+      `${current + 1} / ${STEPS.length}  —  ${STEPS[current].text}`;
+    document.getElementById("btn-next").disabled = current >= STEPS.length - 1;
+  }
+
+  document.getElementById("btn-next").addEventListener("click", () => {
+    if (current < STEPS.length - 1) { current++; render(); }
+  });
+  document.getElementById("btn-reset").addEventListener("click", () => {
+    current = 0; render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

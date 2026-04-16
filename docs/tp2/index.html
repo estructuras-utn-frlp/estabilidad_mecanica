@@ -8,7 +8,7 @@
 
 <meta name="author" content="Cátedra: Ing. Vaello / Ing. Ronconi">
 
-<title>Fuerzas Concurrentes en el Plano – Estabilidad 1 — UTN FRLP</title>
+<title>Fuerzas No Concurrentes en el Plano – Estabilidad 1 — UTN FRLP</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -4024,29 +4024,26 @@ window.Quarto = {
   <ul>
   <li><a href="#enunciado" id="toc-enunciado" class="nav-link active" data-scroll-target="#enunciado"><span class="header-section-number">0.1</span> Enunciado</a></li>
   <li><a href="#explicación" id="toc-explicación" class="nav-link" data-scroll-target="#explicación"><span class="header-section-number">0.2</span> Explicación</a></li>
-  <li><a href="#introducción-el-concepto-de-resultante" id="toc-introducción-el-concepto-de-resultante" class="nav-link" data-scroll-target="#introducción-el-concepto-de-resultante"><span class="header-section-number">1</span> Introducción: el concepto de Resultante</a></li>
-  <li><a href="#ejercicios-1-2-y-3-tres-métodos-sobre-la-misma-figura" id="toc-ejercicios-1-2-y-3-tres-métodos-sobre-la-misma-figura" class="nav-link" data-scroll-target="#ejercicios-1-2-y-3-tres-métodos-sobre-la-misma-figura"><span class="header-section-number">2</span> Ejercicios 1, 2 y 3 — tres métodos sobre la misma figura</a>
+  <li><a href="#introducción-de-concurrentes-a-no-concurrentes" id="toc-introducción-de-concurrentes-a-no-concurrentes" class="nav-link" data-scroll-target="#introducción-de-concurrentes-a-no-concurrentes"><span class="header-section-number">1</span> Introducción: de concurrentes a no concurrentes</a></li>
+  <li><a href="#ejercicio-1-resultante-de-un-sistema-no-concurrente" id="toc-ejercicio-1-resultante-de-un-sistema-no-concurrente" class="nav-link" data-scroll-target="#ejercicio-1-resultante-de-un-sistema-no-concurrente"><span class="header-section-number">2</span> Ejercicio 1 — Resultante de un sistema no concurrente</a>
   <ul class="collapse">
-  <li><a href="#ejercicio-1-proyecciones-analíticas" id="toc-ejercicio-1-proyecciones-analíticas" class="nav-link" data-scroll-target="#ejercicio-1-proyecciones-analíticas"><span class="header-section-number">2.1</span> Ejercicio 1 — Proyecciones analíticas</a></li>
-  <li><a href="#ejercicio-2-momentos-y-teorema-de-varignon" id="toc-ejercicio-2-momentos-y-teorema-de-varignon" class="nav-link" data-scroll-target="#ejercicio-2-momentos-y-teorema-de-varignon"><span class="header-section-number">2.2</span> Ejercicio 2 — Momentos y Teorema de Varignon</a></li>
-  <li><a href="#ejercicio-3-método-mixto" id="toc-ejercicio-3-método-mixto" class="nav-link" data-scroll-target="#ejercicio-3-método-mixto"><span class="header-section-number">2.3</span> Ejercicio 3 — Método mixto</a></li>
+  <li><a href="#datos-del-sistema" id="toc-datos-del-sistema" class="nav-link" data-scroll-target="#datos-del-sistema"><span class="header-section-number">2.1</span> Datos del sistema</a></li>
+  <li><a href="#método-analítico" id="toc-método-analítico" class="nav-link" data-scroll-target="#método-analítico"><span class="header-section-number">2.2</span> Método analítico</a></li>
+  <li><a href="#método-gráfico-polígono-funicular" id="toc-método-gráfico-polígono-funicular" class="nav-link" data-scroll-target="#método-gráfico-polígono-funicular"><span class="header-section-number">2.3</span> Método gráfico — polígono funicular</a></li>
   </ul></li>
-  <li><a href="#ejercicios-4-y-5-invarianza-de-la-resultante" id="toc-ejercicios-4-y-5-invarianza-de-la-resultante" class="nav-link" data-scroll-target="#ejercicios-4-y-5-invarianza-de-la-resultante"><span class="header-section-number">3</span> Ejercicios 4 y 5 — invarianza de la Resultante</a>
+  <li><a href="#ejercicio-2-descomposición-en-tres-direcciones-no-concurrentes" id="toc-ejercicio-2-descomposición-en-tres-direcciones-no-concurrentes" class="nav-link" data-scroll-target="#ejercicio-2-descomposición-en-tres-direcciones-no-concurrentes"><span class="header-section-number">3</span> Ejercicio 2 — Descomposición en tres direcciones no concurrentes</a>
   <ul class="collapse">
-  <li><a href="#ejercicio-4-rotación-del-sistema-de-referencia" id="toc-ejercicio-4-rotación-del-sistema-de-referencia" class="nav-link" data-scroll-target="#ejercicio-4-rotación-del-sistema-de-referencia"><span class="header-section-number">3.1</span> Ejercicio 4 — Rotación del sistema de referencia</a></li>
-  <li><a href="#ejercicio-5-sistema-de-ejes-oblicuos" id="toc-ejercicio-5-sistema-de-ejes-oblicuos" class="nav-link" data-scroll-target="#ejercicio-5-sistema-de-ejes-oblicuos"><span class="header-section-number">3.2</span> Ejercicio 5 — Sistema de ejes oblicuos</a></li>
+  <li><a href="#planteo-del-problema" id="toc-planteo-del-problema" class="nav-link" data-scroll-target="#planteo-del-problema"><span class="header-section-number">3.1</span> Planteo del problema</a></li>
+  <li><a href="#método-analítico-1" id="toc-método-analítico-1" class="nav-link" data-scroll-target="#método-analítico-1"><span class="header-section-number">3.2</span> Método analítico</a>
+  <ul class="collapse">
+  <li><a href="#opción-i-2-proyecciones-1-momento" id="toc-opción-i-2-proyecciones-1-momento" class="nav-link" data-scroll-target="#opción-i-2-proyecciones-1-momento"><span class="header-section-number">3.2.1</span> Opción I — 2 proyecciones + 1 momento</a></li>
+  <li><a href="#opción-ii-3-momentos-método-de-ritter" id="toc-opción-ii-3-momentos-método-de-ritter" class="nav-link" data-scroll-target="#opción-ii-3-momentos-método-de-ritter"><span class="header-section-number">3.2.2</span> Opción II — 3 momentos (método de Ritter)</a></li>
   </ul></li>
-  <li><a href="#ejercicio-6-descomposición-y-par-de-transporte" id="toc-ejercicio-6-descomposición-y-par-de-transporte" class="nav-link" data-scroll-target="#ejercicio-6-descomposición-y-par-de-transporte"><span class="header-section-number">4</span> Ejercicio 6 — Descomposición y par de transporte</a>
-  <ul class="collapse">
-  <li><a href="#parte-a-descomposición-en-direcciones-oblicuas" id="toc-parte-a-descomposición-en-direcciones-oblicuas" class="nav-link" data-scroll-target="#parte-a-descomposición-en-direcciones-oblicuas"><span class="header-section-number">4.1</span> Parte a) — Descomposición en direcciones oblicuas</a></li>
-  <li><a href="#parte-b-traslación-y-par-de-transporte" id="toc-parte-b-traslación-y-par-de-transporte" class="nav-link" data-scroll-target="#parte-b-traslación-y-par-de-transporte"><span class="header-section-number">4.2</span> Parte b) — Traslación y par de transporte</a></li>
+  <li><a href="#método-de-cullman" id="toc-método-de-cullman" class="nav-link" data-scroll-target="#método-de-cullman"><span class="header-section-number">3.3</span> Método de Cullman</a></li>
   </ul></li>
-  <li><a href="#ejercicio-7-equilibrio-el-semáforo" id="toc-ejercicio-7-equilibrio-el-semáforo" class="nav-link" data-scroll-target="#ejercicio-7-equilibrio-el-semáforo"><span class="header-section-number">5</span> Ejercicio 7 — Equilibrio: el semáforo</a></li>
-  <li><a href="#ejercicio-8-equilibrante-de-cada-sistema" id="toc-ejercicio-8-equilibrante-de-cada-sistema" class="nav-link" data-scroll-target="#ejercicio-8-equilibrante-de-cada-sistema"><span class="header-section-number">6</span> Ejercicio 8 — Equilibrante de cada sistema</a></li>
-  <li><a href="#ejercicio-9-variación-del-momento-y-teorema-de-varignon" id="toc-ejercicio-9-variación-del-momento-y-teorema-de-varignon" class="nav-link" data-scroll-target="#ejercicio-9-variación-del-momento-y-teorema-de-varignon"><span class="header-section-number">7</span> Ejercicio 9 — Variación del momento y Teorema de Varignon</a></li>
-  <li><a href="#síntesis" id="toc-síntesis" class="nav-link" data-scroll-target="#síntesis"><span class="header-section-number">8</span> Síntesis</a>
+  <li><a href="#síntesis" id="toc-síntesis" class="nav-link" data-scroll-target="#síntesis"><span class="header-section-number">4</span> Síntesis</a>
   <ul class="collapse">
-  <li><a href="#presentación-de-clase" id="toc-presentación-de-clase" class="nav-link" data-scroll-target="#presentación-de-clase"><span class="header-section-number">8.1</span> Presentación de clase</a></li>
+  <li><a href="#presentación-de-clase" id="toc-presentación-de-clase" class="nav-link" data-scroll-target="#presentación-de-clase"><span class="header-section-number">4.1</span> Presentación de clase</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -4056,8 +4053,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Fuerzas Concurrentes en el Plano</h1>
-<p class="subtitle lead">TP N°1 — Estabilidad 1 · 2° año Ingeniería Mecanica</p>
+<h1 class="title">Fuerzas No Concurrentes en el Plano</h1>
+<p class="subtitle lead">TP N°2 — Estabilidad 1 · 2° año Ingeniería Mecanica</p>
 </div>
 
 
@@ -4089,15 +4086,16 @@ window.Quarto = {
 <section id="enunciado" class="level2" data-number="0.1">
 <h2 data-number="0.1" class="anchored" data-anchor-id="enunciado"><span class="header-section-number">0.1</span> Enunciado</h2>
 <p>El enunciado completo está disponible para descargar:</p>
-<p><a href="tp1_enunciado.pdf">📄 Descargar enunciado (PDF)</a></p>
+<p><a href="tp2_enunciado.pdf">📄 Descargar enunciado (PDF)</a></p>
 </section>
 <section id="explicación" class="level2" data-number="0.2">
 <h2 data-number="0.2" class="anchored" data-anchor-id="explicación"><span class="header-section-number">0.2</span> Explicación</h2>
 <p>La siguiente sección desarrolla los conceptos necesarios para resolver cada ejercicio del TP.</p>
 </section>
-<section id="introducción-el-concepto-de-resultante" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Introducción: el concepto de Resultante</h1>
-<p>En aplicaciones reales — un nudo de cercha, el anclaje de un puente, la unión de una viga — las fuerzas no actúan de a una. El nudo experimenta la acción simultánea de múltiples fuerzas. La <strong>Resultante</strong> es la fuerza única que produce el mismo efecto mecánico que todo ese sistema.</p>
+<section id="introducción-de-concurrentes-a-no-concurrentes" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introducción: de concurrentes a no concurrentes</h1>
+<p>En el TP1 todas las fuerzas pasaban por un punto común. La Resultante quedaba completamente determinada por su módulo y dirección — la recta de acción pasaba por ese punto de concurrencia.</p>
+<p>En este TP las fuerzas tienen <strong>distintos puntos de aplicación</strong>. La Resultante sigue teniendo módulo y dirección, pero su recta de acción puede estar en cualquier lugar del plano. Esa ubicación es la tercera incógnita del problema.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -4108,300 +4106,189 @@ Nota
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El nudo no discrimina métodos analíticos ni gráficos. El nudo siente un solo tirón: la Resultante.</p>
+<p>La diferencia no es de concepto sino de información. Para sistemas no concurrentes necesitamos una ecuación adicional — la de momentos — para determinar completamente la Resultante.</p>
 </div>
 </div>
-<p><strong>Pregunta de apertura:</strong> ¿Cambia el módulo de la Resultante si se miden los ángulos desde el eje X o desde el eje Y?<br>
-→ No. La Resultante es invariante respecto al sistema de referencia. Los ejercicios 4 y 5 demuestran esto explícitamente.</p>
 </section>
-<section id="ejercicios-1-2-y-3-tres-métodos-sobre-la-misma-figura" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Ejercicios 1, 2 y 3 — tres métodos sobre la misma figura</h1>
-<p>La Figura 1 del TP presenta un sistema de 6 fuerzas concurrentes (<span class="math inline">\(F_1\)</span> a <span class="math inline">\(F_6\)</span>). Cada uno de los primeros tres ejercicios trabaja con un subconjunto distinto y aplica un método diferente para hallar la Resultante.</p>
+<section id="ejercicio-1-resultante-de-un-sistema-no-concurrente" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Ejercicio 1 — Resultante de un sistema no concurrente</h1>
+<section id="datos-del-sistema" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="datos-del-sistema"><span class="header-section-number">2.1</span> Datos del sistema</h2>
+<p>El sistema tiene 4 fuerzas con los siguientes puntos de aplicación y direcciones:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Ejercicio</th>
-<th>Subconjunto</th>
-<th>Método</th>
+<th>Fuerza</th>
+<th>Módulo</th>
+<th>Dirección</th>
+<th>Punto de aplicación</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td><span class="math inline">\(\{F_1, F_2, F_3, F_4, F_5\}\)</span></td>
-<td>Proyecciones analíticas</td>
+<td><span class="math inline">\(F_1\)</span></td>
+<td>10 TN</td>
+<td>45°</td>
+<td>(2, 2)</td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td><span class="math inline">\(\{F_2, F_3, F_4, F_5, F_6\}\)</span></td>
-<td>Momentos (Teorema de Varignon)</td>
+<td><span class="math inline">\(F_2\)</span></td>
+<td>6 TN</td>
+<td>270° (↓)</td>
+<td>(0, 0)</td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td><span class="math inline">\(\{F_1, F_3, F_4, F_5, F_6\}\)</span></td>
-<td>Método mixto</td>
+<td><span class="math inline">\(F_3\)</span></td>
+<td>4 TN</td>
+<td>180° (←)</td>
+<td>(0, −9)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(F_4\)</span></td>
+<td>8 TN</td>
+<td>210°</td>
+<td>(−4, 1)</td>
 </tr>
 </tbody>
 </table>
-<p>Los tres ejercicios incluyen verificación gráfica mediante el polígono de fuerzas.</p>
-<section id="ejercicio-1-proyecciones-analíticas" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="ejercicio-1-proyecciones-analíticas"><span class="header-section-number">2.1</span> Ejercicio 1 — Proyecciones analíticas</h2>
-<p>Las componentes cartesianas de la Resultante se obtienen sumando las proyecciones de cada fuerza sobre los ejes X e Y:</p>
-<p><span class="math display">\[R_x = \sum_{i=1}^{n} F_i \cos\theta_i \qquad R_y = \sum_{i=1}^{n} F_i \sin\theta_i\]</span></p>
-<p>El módulo y la dirección resultan:</p>
-<p><span class="math display">\[R = \sqrt{R_x^2 + R_y^2} \qquad \theta_R = \arctan\!\left(\frac{R_y}{R_x}\right)\]</span></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Advertencia
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Condición implícita:</strong> Pitágoras aplica únicamente cuando los ejes son <strong>ortogonales</strong>. En el ejercicio 5 esa condición deja de cumplirse.</p>
-</div>
-</div>
 </section>
-<section id="ejercicio-2-momentos-y-teorema-de-varignon" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="ejercicio-2-momentos-y-teorema-de-varignon"><span class="header-section-number">2.2</span> Ejercicio 2 — Momentos y Teorema de Varignon</h2>
-<p>El momento de una fuerza respecto a un punto O es:</p>
-<p><span class="math display">\[M_O(\mathbf{F}) = F \cdot d\]</span></p>
-<p>donde <span class="math inline">\(d\)</span> es el brazo de palanca (distancia perpendicular de O a la línea de acción de <span class="math inline">\(\mathbf{F}\)</span>).</p>
-<p><strong>Teorema de Varignon:</strong></p>
-<p><span class="math display">\[M_O(\mathbf{R}) = \sum_{i=1}^{n} M_O(\mathbf{F}_i)\]</span></p>
-<p>El ejercicio pide plantear <strong>dos ecuaciones de momentos</strong> respecto a puntos que no pertenezcan a los ejes coordenados.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Elegir puntos fuera de los ejes fuerza a calcular todos los brazos de palanca, lo que consolida el procedimiento. Si el punto estuviera sobre un eje, algunas fuerzas tendrían brazo cero y el ejercicio perdería riqueza.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El método de momentos también determina la <strong>ubicación de la recta de acción</strong> de la Resultante, información que las proyecciones no proveen directamente.</p>
-</div>
-</div>
+<section id="método-analítico" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="método-analítico"><span class="header-section-number">2.2</span> Método analítico</h2>
+<p><strong>Proyecciones:</strong></p>
+<p><span class="math display">\[R_x = 10\cos45° - 8\cos30° - 4 = 7{,}07 - 6{,}93 - 4 = -3{,}86\,\text{TN}\]</span></p>
+<p><span class="math display">\[R_y = 10\sin45° - 8\sin30° - 6 = 7{,}07 - 4 - 6 = -2{,}93\,\text{TN}\]</span></p>
+<p><strong>Módulo y dirección:</strong></p>
+<p><span class="math display">\[|\mathbf{R}| = \sqrt{(-3{,}86)^2 + (-2{,}93)^2} = 4{,}85\,\text{TN}\]</span></p>
+<p><span class="math display">\[\alpha_R = \arctan\!\left(\frac{2{,}93}{3{,}86}\right) = 37{,}2° \quad \text{(tercer cuadrante)}\]</span></p>
+<p><strong>Ecuación de momentos respecto al origen:</strong></p>
+<p><span class="math display">\[\sum M_O = M_R = -10\cos45° \cdot 2 + 10\sin45° \cdot 2 + 8\cos30° \cdot 1 + 8\sin30° \cdot 4 + 6 \cdot 3 - 4 \cdot 9\]</span></p>
+<p><span class="math display">\[M_R = 4{,}93\,\text{TN·m}\]</span></p>
+<p><strong>Recta de acción:</strong></p>
+<p><span class="math display">\[M_R = -R_x \cdot y_0 + R_y \cdot x_0\]</span></p>
+<p><span class="math display">\[4{,}93 = 3{,}86\,y_0 - 2{,}93\,x_0\]</span></p>
+<p>Para <span class="math inline">\(x_0 = 0\)</span>: <span class="math inline">\(y_0 = 1{,}27\,\text{m}\)</span>. La Resultante pasa por el punto <span class="math inline">\((0;\,1{,}27)\)</span>.</p>
 </section>
-<section id="ejercicio-3-método-mixto" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="ejercicio-3-método-mixto"><span class="header-section-number">2.3</span> Ejercicio 3 — Método mixto</h2>
-<p>Combina una ecuación de proyección con una de momento.</p>
-</section>
-</section>
-<section id="ejercicios-4-y-5-invarianza-de-la-resultante" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Ejercicios 4 y 5 — invarianza de la Resultante</h1>
-<p>El sistema de fuerzas no cambia. Lo que cambia es el sistema de referencia.</p>
-<section id="ejercicio-4-rotación-del-sistema-de-referencia" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="ejercicio-4-rotación-del-sistema-de-referencia"><span class="header-section-number">3.1</span> Ejercicio 4 — Rotación del sistema de referencia</h2>
-<p>Se trabaja con la Resultante del ejercicio 1. La terna de ejes se rota <span class="math inline">\(+45°\)</span> en sentido antihorario, generando los ejes <span class="math inline">\(X&#39; - Y&#39;\)</span>.</p>
-<p>El ejercicio pide calcular las nuevas componentes <span class="math inline">\(R_{x&#39;}\)</span> y <span class="math inline">\(R_{y&#39;}\)</span>, y demostrar que:</p>
-<p><span class="math display">\[|\mathbf{R}| = \sqrt{R_{x&#39;}^2 + R_{y&#39;}^2}\]</span></p>
-<p>coincide con el módulo obtenido en el ejercicio 1.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si el módulo cambia al rotar la terna, el error está en cómo se calcularon los ángulos locales de cada fuerza respecto a los nuevos ejes.</p>
-</div>
-</div>
-</section>
-<section id="ejercicio-5-sistema-de-ejes-oblicuos" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="ejercicio-5-sistema-de-ejes-oblicuos"><span class="header-section-number">3.2</span> Ejercicio 5 — Sistema de ejes oblicuos</h2>
-<p>Se trabaja con el sistema del ejercicio 2. Los ejes <span class="math inline">\(X&#39;&#39; - Y&#39;&#39;\)</span> están rotados <span class="math inline">\(+40°\)</span> y <span class="math inline">\(+60°\)</span> respectivamente en sentido <strong>horario</strong> respecto a la terna original. El ángulo entre ambos ejes no es 90°.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Advertencia
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Prohibido Pitágoras.</strong> Cuando los ejes no son perpendiculares, el módulo de la Resultante se obtiene por la <strong>ley de cosenos</strong>:</p>
-<p><span class="math display">\[R^2 = R_{x&#39;&#39;}^2 + R_{y&#39;&#39;}^2 + 2\,R_{x&#39;&#39;}\,R_{y&#39;&#39;}\cos\alpha\]</span></p>
-<p>donde <span class="math inline">\(\alpha\)</span> es el ángulo entre los ejes. El ejercicio pide <strong>justificar explícitamente</strong> por qué Pitágoras no aplica.</p>
-</div>
-</div>
-<p>La verificación es gráfica mediante el <strong>método del paralelogramo</strong> con los ejes oblicuos.</p>
-</section>
-</section>
-<section id="ejercicio-6-descomposición-y-par-de-transporte" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Ejercicio 6 — Descomposición y par de transporte</h1>
-<p>Se trabaja con la Resultante del ejercicio 3.</p>
-<section id="parte-a-descomposición-en-direcciones-oblicuas" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="parte-a-descomposición-en-direcciones-oblicuas"><span class="header-section-number">4.1</span> Parte a) — Descomposición en direcciones oblicuas</h2>
-<p>La Resultante se descompone en dos direcciones no ortogonales: dirección <span class="math inline">\(a\)</span> (a 30°) y dirección <span class="math inline">\(b\)</span> (a 140°).</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Como las direcciones no son perpendiculares entre sí, no se puede aplicar la descomposición cartesiana estándar. El procedimiento es el <strong>método del paralelogramo</strong> o la ley de senos.</p>
-</div>
-</div>
-</section>
-<section id="parte-b-traslación-y-par-de-transporte" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="parte-b-traslación-y-par-de-transporte"><span class="header-section-number">4.2</span> Parte b) — Traslación y par de transporte</h2>
-<p>Trasladar el punto de aplicación de una fuerza no es gratis. El sistema original se mantiene equivalente solo si se agrega un <strong>par de transporte</strong>:</p>
-<p><span class="math display">\[M_{\text{par}} = \mathbf{R} \times d\]</span></p>
-<p>El ejercicio pide trasladar la Resultante a los puntos <span class="math inline">\(A(-4,\,1)\)</span> m y <span class="math inline">\(B(2,\,3)\)</span> m, determinando el par de transporte en cada caso.</p>
-<p>La fuerza es idéntica en A y en B. Los pares son distintos porque las distancias a la recta de acción original son distintas.</p>
-</section>
-</section>
-<section id="ejercicio-7-equilibrio-el-semáforo" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Ejercicio 7 — Equilibrio: el semáforo</h1>
-<p>Un semáforo de peso <span class="math inline">\(P = 0{,}125\,\text{kN}\)</span> cuelga de un cable vertical unido a otros dos cables fijos a un soporte superior, que forman ángulos de <span class="math inline">\(37°\)</span> y <span class="math inline">\(53°\)</span> con la horizontal.</p>
-<p>La condición de equilibrio es:</p>
-<p><span class="math display">\[\sum \mathbf{F}_i = \mathbf{0} \quad \Leftrightarrow \quad \sum F_x = 0 \quad \text{y} \quad \sum F_y = 0\]</span></p>
-<p>Se pide determinar la tracción en los tres cables.</p>
-<p><strong>Interpretación gráfica:</strong> el polígono de fuerzas cierra. La última fuerza regresa exactamente al punto de partida del diagrama; cualquier desvío indica error.</p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Advertencia
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El enunciado da el peso en <strong>kN</strong>. Trabajar en kN durante todo el ejercicio.</p>
-</div>
-</div>
-</section>
-<section id="ejercicio-8-equilibrante-de-cada-sistema" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Ejercicio 8 — Equilibrante de cada sistema</h1>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Concepto</th>
-<th>Definición</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Resultante</strong> <span class="math inline">\(\mathbf{R}\)</span></td>
-<td>Fuerza única equivalente al sistema. Lo que <em>le pasa</em> al nudo.</td>
-</tr>
-<tr class="even">
-<td><strong>Equilibrante</strong> <span class="math inline">\(\mathbf{E}\)</span></td>
-<td>Fuerza necesaria para anular la Resultante. Lo que <em>se aplica</em> para que el nudo no se mueva.</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math display">\[\mathbf{E} = -\mathbf{R}\]</span></p>
-<p>El ejercicio pide determinar la equilibrante para los tres sistemas de los ejercicios 1, 2 y 3, usando en cada caso el mismo método que se empleó para hallar la Resultante:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Sistema</th>
-<th>Método</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\mathbf{E}_1\)</span> (del Ej. 1)</td>
-<td>Analítico + verificación por polígono cerrado</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\mathbf{E}_2\)</span> (del Ej. 2)</td>
-<td>Momentos, verificar <span class="math inline">\(\sum M = 0\)</span> respecto a un punto arbitrario</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\mathbf{E}_3\)</span> (del Ej. 3)</td>
-<td>Método mixto</td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Advertencia
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Error frecuente:</strong> la equilibrante actúa en el <strong>mismo punto de aplicación</strong> que la Resultante, con sentido contrario. No es simplemente cambiar el signo del vector en el gráfico sin verificar el punto.</p>
-</div>
-</div>
-</section>
-<section id="ejercicio-9-variación-del-momento-y-teorema-de-varignon" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Ejercicio 9 — Variación del momento y Teorema de Varignon</h1>
-<p>Usando la Resultante del ejercicio 1, el ejercicio estudia cómo varía el efecto de giro según el punto respecto al cual se mide.</p>
-<p>Se pide:</p>
-<ol type="a">
-<li>Calcular el momento de <span class="math inline">\(\mathbf{R}\)</span> respecto a un punto genérico <span class="math inline">\(P(0,\,y)\)</span> sobre el eje de ordenadas.</li>
-<li>Determinar la coordenada <span class="math inline">\(y_P\)</span> para la cual el momento sea de <span class="math inline">\(20\,\text{kN·m}\)</span> en sentido horario.</li>
-<li>Verificar el resultado aplicando el Teorema de Varignon con las fuerzas individuales del subconjunto.</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Nota
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El momento de una fuerza no es una propiedad fija: depende del punto respecto al cual se mide. Varignon permite calcularlo descomponiendo la fuerza en sus componentes, lo que suele simplificar el cálculo de brazos de palanca.</p>
-</div>
-</div>
-</section>
-<section id="síntesis" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Síntesis</h1>
+<section id="método-gráfico-polígono-funicular" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="método-gráfico-polígono-funicular"><span class="header-section-number">2.3</span> Método gráfico — polígono funicular</h2>
+<p>El polígono funicular es la herramienta gráfica para localizar la recta de acción de la Resultante en sistemas no concurrentes.</p>
+<p><strong>Construcción:</strong></p>
 <ol type="1">
-<li>La Resultante es invariante respecto al sistema de referencia (demostrado en ej. 4 y 5).</li>
-<li>Proyecciones, momentos y método mixto son herramientas complementarias; el método mixto es la herramienta de auditoría.</li>
-<li>En sistemas oblicuos, Pitágoras no aplica — usar ley de cosenos (ej. 5).</li>
-<li>Descomponer en direcciones no ortogonales requiere paralelogramo o ley de senos (ej. 6a).</li>
-<li>Trasladar fuerzas introduce momentos adicionales — par de transporte (ej. 6b).</li>
-<li>Equilibrio equivale a Resultante nula y polígono vectorial cerrado (ej. 7).</li>
-<li>Equilibrante <span class="math inline">\(= -\mathbf{R}\)</span>: mismo módulo y línea de acción, sentido contrario, mismo punto de aplicación (ej. 8).</li>
-<li>El momento varía con el punto de referencia; Varignon permite calcularlo por descomposición (ej. 9).</li>
+<li>Dibujar las rectas de acción de todas las fuerzas en escala.</li>
+<li>Construir el <strong>polígono de fuerzas</strong>: unir los vectores cabeza a cola. El vector de cierre es <span class="math inline">\(\mathbf{R}\)</span>.</li>
+<li>Elegir un <strong>polo</strong> O fuera del polígono de fuerzas.</li>
+<li>Trazar los <strong>rayos</strong> desde O hacia cada vértice del polígono.</li>
+<li>Construir el <strong>polígono funicular</strong>: por un punto de la recta de acción de la primera fuerza, trazar una recta paralela al rayo I; por su intersección con la recta de acción de la segunda fuerza, trazar una paralela al rayo II; continuar hasta la última fuerza.</li>
+<li>El cruce del <strong>primer y último lado</strong> del funicular es un punto de la recta de acción de <span class="math inline">\(\mathbf{R}\)</span>.</li>
 </ol>
-<section id="presentación-de-clase" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="presentación-de-clase"><span class="header-section-number">8.1</span> Presentación de clase</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El polígono de fuerzas determina módulo y dirección de <span class="math inline">\(\mathbf{R}\)</span>.<br>
+El polígono funicular determina su recta de acción.<br>
+Ambas construcciones son necesarias y complementarias.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="ejercicio-2-descomposición-en-tres-direcciones-no-concurrentes" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Ejercicio 2 — Descomposición en tres direcciones no concurrentes</h1>
+<section id="planteo-del-problema" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="planteo-del-problema"><span class="header-section-number">3.1</span> Planteo del problema</h2>
+<p>Dada <span class="math inline">\(P = 8\,\text{TN}\)</span> a <span class="math inline">\(30°\)</span>, descomponerla en tres componentes <span class="math inline">\(F_a\)</span>, <span class="math inline">\(F_b\)</span>, <span class="math inline">\(F_c\)</span> que actúan sobre las rectas de acción <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> indicadas en la Figura 2.</p>
+<p>Tres incógnitas → tres ecuaciones independientes.</p>
+</section>
+<section id="método-analítico-1" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="método-analítico-1"><span class="header-section-number">3.2</span> Método analítico</h2>
+<section id="opción-i-2-proyecciones-1-momento" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="opción-i-2-proyecciones-1-momento"><span class="header-section-number">3.2.1</span> Opción I — 2 proyecciones + 1 momento</h3>
+<p><span class="math display">\[\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_A = M_R\]</span></p>
+<p>Expresando cada componente en función de su módulo y el ángulo de su recta de acción, se obtiene un sistema de 3 ecuaciones con 3 incógnitas (<span class="math inline">\(F_a\)</span>, <span class="math inline">\(F_b\)</span>, <span class="math inline">\(F_c\)</span>).</p>
+<p>Resultados: <span class="math inline">\(F_a = 17{,}55\,\text{TN}\)</span> · <span class="math inline">\(F_b = -17{,}41\,\text{TN}\)</span> · <span class="math inline">\(F_c = -3{,}75\,\text{TN}\)</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Advertencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El signo negativo indica que el sentido supuesto al plantear la ecuación era incorrecto. La componente actúa en sentido contrario al asumido.</p>
+</div>
+</div>
+</section>
+<section id="opción-ii-3-momentos-método-de-ritter" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="opción-ii-3-momentos-método-de-ritter"><span class="header-section-number">3.2.2</span> Opción II — 3 momentos (método de Ritter)</h3>
+<p>Los puntos de momento son las intersecciones de las rectas de acción tomadas de a pares:</p>
+<ul>
+<li>Punto D = intersección de <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> → ecuación con solo <span class="math inline">\(F_a\)</span></li>
+<li>Punto E = intersección de <span class="math inline">\(a\)</span> y <span class="math inline">\(c\)</span> → ecuación con solo <span class="math inline">\(F_b\)</span></li>
+<li>Punto F = intersección de <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> → ecuación con solo <span class="math inline">\(F_c\)</span></li>
+</ul>
+<p><span class="math display">\[\sum M_D = M_R \qquad \sum M_E = M_R \qquad \sum M_F = M_R\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ritter es especialmente eficiente cuando se construye el gráfico en escala: las distancias a los puntos de momento se miden directamente sin calcular coordenadas.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="método-de-cullman" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="método-de-cullman"><span class="header-section-number">3.3</span> Método de Cullman</h2>
+<p>Método gráfico que reduce el problema a dos descomposiciones concurrentes sucesivas.</p>
+<p><strong>Procedimiento:</strong></p>
+<ol type="1">
+<li>Identificar el punto <span class="math inline">\(Q\)</span> donde <span class="math inline">\(\mathbf{R}\)</span> intersecta la dirección <span class="math inline">\(a\)</span>.</li>
+<li>Identificar el punto <span class="math inline">\(D\)</span> donde se cortan las direcciones <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span>.</li>
+<li>La recta <span class="math inline">\(QD\)</span> es la <strong>recta auxiliar de Cullman</strong>.</li>
+<li>Descomponer <span class="math inline">\(\mathbf{R}\)</span> en la dirección <span class="math inline">\(a\)</span> y en la auxiliar <span class="math inline">\(QD\)</span> → se obtienen <span class="math inline">\(F_a\)</span> y <span class="math inline">\(\mathbf{R}_{aux}\)</span>.</li>
+<li>Descomponer <span class="math inline">\(\mathbf{R}_{aux}\)</span> en las direcciones <span class="math inline">\(b\)</span> y <span class="math inline">\(c\)</span> desde el punto <span class="math inline">\(D\)</span> → se obtienen <span class="math inline">\(F_b\)</span> y <span class="math inline">\(F_c\)</span>.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cada descomposición es una descomposición concurrente estándar (paralelogramo). Cullman encadena dos de ellas para resolver un problema no concurrente.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="síntesis" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Síntesis</h1>
+<ol type="1">
+<li>En sistemas no concurrentes la Resultante requiere tres datos para quedar completamente determinada: módulo, dirección y recta de acción.</li>
+<li>La recta de acción se obtiene analíticamente con una ecuación de momentos, y gráficamente con el polígono funicular.</li>
+<li>Para descomponer una fuerza en tres direcciones no concurrentes se dispone de tres métodos equivalentes: analítico (2P+1M), Ritter (3M) y Cullman (gráfico).</li>
+<li>El método de Ritter elige los puntos de momento en las intersecciones de las rectas de acción para desacoplar las incógnitas — una por ecuación.</li>
+<li>Cullman reduce el problema a dos descomposiciones concurrentes sucesivas mediante una recta auxiliar.</li>
+<li>Los tres métodos deben producir el mismo resultado numérico. Las diferencias de signo indican que el sentido supuesto era incorrecto.</li>
+</ol>
+<section id="presentación-de-clase" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="presentación-de-clase"><span class="header-section-number">4.1</span> Presentación de clase</h2>
 <p>La presentación utilizada en clase está disponible en:</p>
-<p><a href="../tp1/tp1_presentacion.html">▶ Ver presentación</a></p>
+<p><a href="../tp2/tp2_presentacion.html">▶ Ver presentación</a></p>
 
 
 </section>

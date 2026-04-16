@@ -1,0 +1,152 @@
+---
+title: "Fuerzas No Concurrentes en el Plano"
+subtitle: "TP N°2 — Estabilidad 1 · 2° año Ingeniería Mecanica"
+author: "Cátedra: Ing. Vaello / Ing. Ronconi"
+date: today
+lang: es
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    theme: cosmo
+    self-contained: true
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: margin=2.5cm
+    number-sections: true
+    toc: true
+    fontsize: 11pt
+---
+
+# Introducción: de concurrentes a no concurrentes
+
+En el TP1 todas las fuerzas pasaban por un punto común. La Resultante quedaba completamente determinada por su módulo y dirección — la recta de acción pasaba por ese punto de concurrencia.
+
+En este TP las fuerzas tienen **distintos puntos de aplicación**. La Resultante sigue teniendo módulo y dirección, pero su recta de acción puede estar en cualquier lugar del plano. Esa ubicación es la tercera incógnita del problema.
+
+::: {.callout-note}
+La diferencia no es de concepto sino de información. Para sistemas no concurrentes necesitamos una ecuación adicional — la de momentos — para determinar completamente la Resultante.
+:::
+
+# Ejercicio 1 — Resultante de un sistema no concurrente
+
+## Datos del sistema
+
+El sistema tiene 4 fuerzas con los siguientes puntos de aplicación y direcciones:
+
+| Fuerza | Módulo | Dirección | Punto de aplicación |
+|---|---|---|---|
+| $F_1$ | 10 TN | 45° | (2, 2) |
+| $F_2$ | 6 TN | 270° (↓) | (0, 0) |
+| $F_3$ | 4 TN | 180° (←) | (0, −9) |
+| $F_4$ | 8 TN | 210° | (−4, 1) |
+
+## Método analítico
+
+**Proyecciones:**
+
+$$R_x = 10\cos45° - 8\cos30° - 4 = 7{,}07 - 6{,}93 - 4 = -3{,}86\,\text{TN}$$
+
+$$R_y = 10\sin45° - 8\sin30° - 6 = 7{,}07 - 4 - 6 = -2{,}93\,\text{TN}$$
+
+**Módulo y dirección:**
+
+$$|\mathbf{R}| = \sqrt{(-3{,}86)^2 + (-2{,}93)^2} = 4{,}85\,\text{TN}$$
+
+$$\alpha_R = \arctan\!\left(\frac{2{,}93}{3{,}86}\right) = 37{,}2° \quad \text{(tercer cuadrante)}$$
+
+**Ecuación de momentos respecto al origen:**
+
+$$\sum M_O = M_R = -10\cos45° \cdot 2 + 10\sin45° \cdot 2 + 8\cos30° \cdot 1 + 8\sin30° \cdot 4 + 6 \cdot 3 - 4 \cdot 9$$
+
+$$M_R = 4{,}93\,\text{TN·m}$$
+
+**Recta de acción:**
+
+$$M_R = -R_x \cdot y_0 + R_y \cdot x_0$$
+
+$$4{,}93 = 3{,}86\,y_0 - 2{,}93\,x_0$$
+
+Para $x_0 = 0$: $y_0 = 1{,}27\,\text{m}$. La Resultante pasa por el punto $(0;\,1{,}27)$.
+
+## Método gráfico — polígono funicular
+
+El polígono funicular es la herramienta gráfica para localizar la recta de acción de la Resultante en sistemas no concurrentes.
+
+**Construcción:**
+
+1. Dibujar las rectas de acción de todas las fuerzas en escala.
+2. Construir el **polígono de fuerzas**: unir los vectores cabeza a cola. El vector de cierre es $\mathbf{R}$.
+3. Elegir un **polo** O fuera del polígono de fuerzas.
+4. Trazar los **rayos** desde O hacia cada vértice del polígono.
+5. Construir el **polígono funicular**: por un punto de la recta de acción de la primera fuerza, trazar una recta paralela al rayo I; por su intersección con la recta de acción de la segunda fuerza, trazar una paralela al rayo II; continuar hasta la última fuerza.
+6. El cruce del **primer y último lado** del funicular es un punto de la recta de acción de $\mathbf{R}$.
+
+::: {.callout-note}
+El polígono de fuerzas determina módulo y dirección de $\mathbf{R}$.  
+El polígono funicular determina su recta de acción.  
+Ambas construcciones son necesarias y complementarias.
+:::
+
+# Ejercicio 2 — Descomposición en tres direcciones no concurrentes
+
+## Planteo del problema
+
+Dada $P = 8\,\text{TN}$ a $30°$, descomponerla en tres componentes $F_a$, $F_b$, $F_c$ que actúan sobre las rectas de acción $a$, $b$, $c$ indicadas en la Figura 2.
+
+Tres incógnitas → tres ecuaciones independientes.
+
+## Método analítico
+
+### Opción I — 2 proyecciones + 1 momento
+
+$$\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_A = M_R$$
+
+Expresando cada componente en función de su módulo y el ángulo de su recta de acción, se obtiene un sistema de 3 ecuaciones con 3 incógnitas ($F_a$, $F_b$, $F_c$).
+
+Resultados: $F_a = 17{,}55\,\text{TN}$ · $F_b = -17{,}41\,\text{TN}$ · $F_c = -3{,}75\,\text{TN}$
+
+::: {.callout-warning}
+El signo negativo indica que el sentido supuesto al plantear la ecuación era incorrecto. La componente actúa en sentido contrario al asumido.
+:::
+
+### Opción II — 3 momentos (método de Ritter)
+
+Los puntos de momento son las intersecciones de las rectas de acción tomadas de a pares:
+
+- Punto D = intersección de $b$ y $c$ → ecuación con solo $F_a$
+- Punto E = intersección de $a$ y $c$ → ecuación con solo $F_b$
+- Punto F = intersección de $a$ y $b$ → ecuación con solo $F_c$
+
+$$\sum M_D = M_R \qquad \sum M_E = M_R \qquad \sum M_F = M_R$$
+
+::: {.callout-tip}
+Ritter es especialmente eficiente cuando se construye el gráfico en escala: las distancias a los puntos de momento se miden directamente sin calcular coordenadas.
+:::
+
+## Método de Cullman
+
+Método gráfico que reduce el problema a dos descomposiciones concurrentes sucesivas.
+
+**Procedimiento:**
+
+1. Identificar el punto $Q$ donde $\mathbf{R}$ intersecta la dirección $a$.
+2. Identificar el punto $D$ donde se cortan las direcciones $b$ y $c$.
+3. La recta $QD$ es la **recta auxiliar de Cullman**.
+4. Descomponer $\mathbf{R}$ en la dirección $a$ y en la auxiliar $QD$ → se obtienen $F_a$ y $\mathbf{R}_{aux}$.
+5. Descomponer $\mathbf{R}_{aux}$ en las direcciones $b$ y $c$ desde el punto $D$ → se obtienen $F_b$ y $F_c$.
+
+::: {.callout-note}
+Cada descomposición es una descomposición concurrente estándar (paralelogramo). Cullman encadena dos de ellas para resolver un problema no concurrente.
+:::
+
+# Síntesis
+
+1. En sistemas no concurrentes la Resultante requiere tres datos para quedar completamente determinada: módulo, dirección y recta de acción.
+2. La recta de acción se obtiene analíticamente con una ecuación de momentos, y gráficamente con el polígono funicular.
+3. Para descomponer una fuerza en tres direcciones no concurrentes se dispone de tres métodos equivalentes: analítico (2P+1M), Ritter (3M) y Cullman (gráfico).
+4. El método de Ritter elige los puntos de momento en las intersecciones de las rectas de acción para desacoplar las incógnitas — una por ecuación.
+5. Cullman reduce el problema a dos descomposiciones concurrentes sucesivas mediante una recta auxiliar.
+6. Los tres métodos deben producir el mismo resultado numérico. Las diferencias de signo indican que el sentido supuesto era incorrecto.

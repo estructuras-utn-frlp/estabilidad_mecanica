@@ -1,0 +1,22 @@
+---
+title: "TP N°2 — Fuerzas No-Concurrentes en el Plano"
+---
+
+## Enunciado
+
+El enunciado completo está disponible para descargar:
+
+[📄 Descargar enunciado (PDF)](tp2_enunciado.pdf)
+
+## Explicación
+
+La siguiente sección desarrolla los conceptos necesarios para resolver
+cada ejercicio del TP.
+
+{{< include tp2_documento.qmd >}}
+
+## Presentación de clase
+
+La presentación utilizada en clase está disponible en:
+
+[▶ Ver presentación](tp2_presentacion.qmd)

@@ -1,0 +1,198 @@
+---
+title: "Fuerzas No Concurrentes en el Plano"
+subtitle: "TP N°2 — Estabilidad 1 · 2° año Ingeniería Mecanica"
+author: "Cátedra: Ing. Vaello / Ing. Ronconi"
+lang: es
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    scrollable: true
+    transition: fade
+    background-transition: none
+    footer: "Estabilidad — UTN FRLP · 2026"
+    width: 1050
+    height: 700
+    margin: 0.1
+    center: false
+    navigation-mode: linear
+    controls-layout: edges
+    controls-tutorial: false
+    hash: true
+    history: true
+    hash-one-based-index: false
+    fragment-in-url: false
+    pdf-separate-fragments: false
+    auto-stretch: true
+---
+
+## ¿Qué cambia respecto al TP1?
+
+En el TP1 todas las fuerzas pasaban por el mismo punto: el origen.
+
+En este TP las fuerzas tienen **distintos puntos de aplicación** — no se cortan en un punto común.
+
+> Eso cambia todo: ya no alcanza con saber módulo y dirección de la Resultante.  
+> Ahora también hay que determinar **dónde actúa**.
+
+---
+
+## Lo que el TP pide resolver
+
+| Ejercicio | Problema | Métodos |
+|---|---|---|
+| 1 | Hallar la Resultante de 4 fuerzas no concurrentes | Analítico + polígono funicular |
+| 2 | Descomponer P en 3 direcciones no concurrentes | Cullman · Ritter · Analítico |
+
+---
+
+## Ejercicio 1 — las tres incógnitas
+
+Para un sistema no concurrente la Resultante tiene tres incógnitas:
+
+$$|\mathbf{R}|, \quad \theta_R, \quad \text{recta de acción}$$
+
+Las dos primeras se obtienen igual que en el TP1:
+
+$$ R_x = \sum F_i \cos\theta_i \qquad R_y = \sum F_i \sin\theta_i $$
+
+La tercera — **dónde actúa** — requiere una ecuación de momentos.
+
+---
+
+## Ejercicio 1 — método analítico
+
+**Dos proyecciones + una de momentos:**
+
+$$\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_O = M_R$$
+
+La ecuación de momentos respecto al origen da:
+
+$$M_R = -R_x \cdot y_0 + R_y \cdot x_0$$
+
+Esa es la **ecuación de la recta de acción** de la Resultante.
+
+::: {.callout-tip}
+Para el Ejercicio 1: $R_x = -3{,}86\,\text{TN}$, $R_y = -2{,}93\,\text{TN}$, $|\mathbf{R}| = 4{,}85\,\text{TN}$, $\alpha_R = 37{,}2°$.  
+La recta de acción pasa por $(0;\, 1{,}27)$.
+:::
+
+---
+
+## Ejercicio 1 — método gráfico: polígono funicular
+
+El polígono funicular localiza la recta de acción de la Resultante sin ecuaciones.
+
+**Procedimiento:**
+
+1. Construir el **polígono de fuerzas** (une los vectores cabeza a cola).
+2. Elegir un **polo** O fuera del polígono y trazar los **rayos** O–1, O–2, ... O–n.
+3. Trazar los **lados del funicular** paralelos a cada rayo, por puntos sobre las rectas de acción de cada fuerza, siguiendo el orden del polígono.
+4. El cruce del **primer y último lado** del funicular da un punto de la recta de acción de $\mathbf{R}$.
+
+::: {.callout-note}
+La dirección de $\mathbf{R}$ la da el polígono de fuerzas.  
+La ubicación de $\mathbf{R}$ la da el polígono funicular.  
+Son dos construcciones complementarias, no alternativas.
+:::
+
+---
+
+## Ejercicio 1 — diferencia con el TP1
+
+| | TP1 (concurrentes) | TP2 (no concurrentes) |
+|---|---|---|
+| Punto de aplicación | Único (origen) | Distinto por fuerza |
+| Incógnitas de R | Módulo + dirección | Módulo + dirección + recta de acción |
+| Método gráfico | Polígono de fuerzas | Polígono de fuerzas + funicular |
+| Ecuaciones | 2 (proyecciones) | 2 proyecciones + 1 momento |
+
+---
+
+## Ejercicio 2 — el problema inverso
+
+En el Ejercicio 1 se **compone** un sistema en una Resultante.  
+En el Ejercicio 2 se **descompone** una fuerza $P$ en tres componentes no concurrentes.
+
+Las tres componentes actúan sobre **tres rectas de acción distintas** que no pasan por el mismo punto.
+
+::: {.callout-warning}
+Tres incógnitas ($F_a$, $F_b$, $F_c$) requieren tres ecuaciones independientes.  
+Las mismas combinaciones del Ejercicio 1 sirven, pero ahora las fuerzas son las incógnitas y $\mathbf{R} = P$ es el dato.
+:::
+
+---
+
+## Ejercicio 2 — método analítico
+
+**Opción I — 2 proyecciones + 1 momento:**
+
+$$\sum F_x = R_x \qquad \sum F_y = R_y \qquad \sum M_A = M_R$$
+
+El punto A puede ser cualquiera. Elegirlo sobre la recta de acción de una componente la cancela del sistema y simplifica el cálculo.
+
+**Opción II — 3 momentos (método de Ritter):**
+
+$$\sum M_D = M_R \qquad \sum M_E = M_R \qquad \sum M_F = M_R$$
+
+Los puntos D, E, F son las intersecciones de las rectas de acción **tomadas de a pares**. Cada ecuación tiene una sola incógnita.
+
+::: {.callout-tip}
+Ritter es más elegante cuando se puede construir el gráfico en escala: las distancias a los puntos de momento se leen directamente.
+:::
+
+---
+
+## Ejercicio 2 — método de Cullman
+
+Método gráfico. Trabaja con la Resultante y las tres rectas de acción.
+
+**Procedimiento:**
+
+1. Identificar el punto donde $\mathbf{R}$ corta a una de las direcciones (ej. dirección $a$).
+2. Identificar el punto donde se cortan las otras dos direcciones (ej. $b$ y $c$ → punto D).
+3. La recta entre esos dos puntos es la **recta auxiliar de Cullman**.
+4. Descomponer $\mathbf{R}$ entre la dirección $a$ y la auxiliar de Cullman → obtenés $F_a$ y $\mathbf{R}_{aux}$.
+5. Descomponer $\mathbf{R}_{aux}$ en las direcciones $b$ y $c$ → obtenés $F_b$ y $F_c$.
+
+::: {.callout-note}
+Cullman resuelve el problema en dos descomposiciones concurrentes sucesivas.  
+Cada descomposición se hace con el método del paralelogramo.
+:::
+
+---
+
+## Cullman — interpretación geométrica
+
+```{=html}
+<iframe src="https://www.geogebra.org/geometry/fnv3qzzy?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+```
+
+
+---
+
+## Comparación de métodos — Ejercicio 2
+
+| Método | Tipo | Requiere | Ventaja |
+|---|---|---|---|
+| Analítico (2P+1M) | Algebraico | Coordenadas y ángulos | Exacto, sistematizable |
+| Ritter (3M) | Algebraico | Intersecciones de rectas | Una incógnita por ecuación |
+| Cullman | Gráfico | Gráfico en escala | Visual, rápido de verificar |
+
+::: {.callout-warning}
+Los tres métodos deben dar el mismo resultado.  
+Resultado del Ejercicio 2: $F_a = 17{,}55\,\text{TN}$, $F_b = -17{,}41\,\text{TN}$, $F_c = -3{,}75\,\text{TN}$.  
+Signo negativo → el sentido supuesto era incorrecto.
+:::
+
+---
+
+## Síntesis
+
+1. En sistemas no concurrentes la Resultante tiene una tercera incógnita: la recta de acción.
+2. La recta de acción se determina analíticamente con una ecuación de momentos.
+3. Gráficamente se determina con el polígono funicular.
+4. Para descomponer en tres direcciones no concurrentes hay tres métodos equivalentes: analítico, Ritter y Cullman.
+5. Ritter elige los puntos de momento estratégicamente para desacoplar las incógnitas.
+6. Cullman reduce el problema a dos descomposiciones concurrentes sucesivas.

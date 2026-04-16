@@ -13,3 +13,4 @@ subtitle: "Ingeniería Mecanica · UTN FRLP · 2026"
 | TP | Tema | |
 |---|---|---|
 | TP1 | Fuerzas Concurrentes en el Plano | [Ver](tp1/index.qmd) |
+| TP2 | Fuerzas No Concurrentes en el Plano | [Ver](tp2/index.qmd) |
